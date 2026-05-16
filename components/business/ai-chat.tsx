@@ -69,7 +69,7 @@ export function AIChat() {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#00ffb4] text-[#020409] flex items-center justify-center shadow-lg animate-pulse-ring hover:scale-105 transition-transform"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#00d4aa] text-[#0a0f1e] flex items-center justify-center shadow-lg animate-pulse-ring hover:scale-105 transition-transform"
         aria-label="Open AI Chat"
       >
         <Sparkles className="h-6 w-6" />
@@ -90,22 +90,22 @@ export function AIChat() {
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-[#ffffff08]">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#00ffb4]/10 flex items-center justify-center">
-              <Bot className="h-5 w-5 text-[#00ffb4]" />
+            <div className="w-10 h-10 rounded-xl bg-[#00d4aa]/10 flex items-center justify-center">
+              <Bot className="h-5 w-5 text-[#00d4aa]" />
             </div>
             <div>
-              <h3 className="font-display font-semibold text-[#e8f0fe]">
+              <h3 className="font-display font-semibold text-[#f0f4ff]">
                 AI Assistant
               </h3>
-              <div className="flex items-center gap-1.5 text-xs text-[#00ffb4]">
-                <span className="w-2 h-2 rounded-full bg-[#00ffb4] animate-pulse" />
+              <div className="flex items-center gap-1.5 text-xs text-[#00d4aa]">
+                <span className="w-2 h-2 rounded-full bg-[#00d4aa] animate-pulse" />
                 Online
               </div>
             </div>
           </div>
           <button
             onClick={() => setIsOpen(false)}
-            className="p-2 text-[#6b7c99] hover:text-[#e8f0fe] transition-colors"
+            className="p-2 text-[#8b9bc8] hover:text-[#f0f4ff] transition-colors"
           >
             <X className="h-5 w-5" />
           </button>
@@ -121,8 +121,8 @@ export function AIChat() {
               <div
                 className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
                   msg.role === "user"
-                    ? "bg-[#7b2fff]/20 text-[#7b2fff]"
-                    : "bg-[#00ffb4]/10 text-[#00ffb4]"
+                    ? "bg-[#7c3aed]/20 text-[#7c3aed]"
+                    : "bg-[#00d4aa]/10 text-[#00d4aa]"
                 }`}
               >
                 {msg.role === "user" ? (
@@ -134,8 +134,8 @@ export function AIChat() {
               <div
                 className={`max-w-[80%] px-4 py-3 rounded-2xl text-sm leading-relaxed ${
                   msg.role === "user"
-                    ? "bg-[#00ffb4] text-[#020409] rounded-tr-md"
-                    : "bg-[#0a1628] text-[#e8f0fe] border border-[#ffffff08] rounded-tl-md"
+                    ? "bg-[#00d4aa] text-[#0a0f1e] rounded-tr-md"
+                    : "bg-[#0a1628] text-[#f0f4ff] border border-[#ffffff08] rounded-tl-md"
                 }`}
               >
                 {msg.content}
@@ -144,14 +144,14 @@ export function AIChat() {
           ))}
           {isLoading && (
             <div className="flex gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[#00ffb4]/10 flex items-center justify-center">
-                <Bot className="h-4 w-4 text-[#00ffb4]" />
+              <div className="w-8 h-8 rounded-lg bg-[#00d4aa]/10 flex items-center justify-center">
+                <Bot className="h-4 w-4 text-[#00d4aa]" />
               </div>
               <div className="px-4 py-3 rounded-2xl rounded-tl-md bg-[#0a1628] border border-[#ffffff08]">
                 <div className="flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-[#6b7c99] animate-bounce" />
-                  <span className="w-2 h-2 rounded-full bg-[#6b7c99] animate-bounce delay-100" />
-                  <span className="w-2 h-2 rounded-full bg-[#6b7c99] animate-bounce delay-200" />
+                  <span className="w-2 h-2 rounded-full bg-[#8b9bc8] animate-bounce" />
+                  <span className="w-2 h-2 rounded-full bg-[#8b9bc8] animate-bounce delay-100" />
+                  <span className="w-2 h-2 rounded-full bg-[#8b9bc8] animate-bounce delay-200" />
                 </div>
               </div>
             </div>

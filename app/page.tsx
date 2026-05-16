@@ -10,7 +10,7 @@ import { AIChat } from "@/components/business/ai-chat"
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-[#020409] text-[#e8f0fe]">
+    <div className="min-h-screen bg-[#0a0f1e] text-[#f0f4ff]">
       <Header />
       <main>
         <Hero />

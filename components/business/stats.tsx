@@ -67,10 +67,10 @@ export function Stats() {
               className="animate-fade-up text-center"
               style={{ animationDelay: `${i * 100}ms` }}
             >
-              <div className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#00ffb4] mb-2">
+              <div className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#00d4aa] mb-2">
                 <AnimatedNumber value={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="font-mono text-xs sm:text-sm text-[#6b7c99] uppercase tracking-wider">
+              <div className="font-mono text-xs sm:text-sm text-[#8b9bc8] uppercase tracking-wider">
                 {stat.label}
               </div>
             </div>

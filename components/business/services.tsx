@@ -7,37 +7,37 @@ const services = [
     icon: Globe,
     title: "Business Websites",
     description: "High-converting landing pages & company sites that establish your brand and drive results.",
-    color: "#00ffb4",
+    color: "#00d4aa",
   },
   {
     icon: LayoutDashboard,
     title: "Admin Dashboards",
     description: "Real-time data panels for business intelligence, analytics, and operational control.",
-    color: "#00d4ff",
+    color: "#00d4aa",
   },
   {
     icon: Bot,
     title: "AI Web Applications",
     description: "Chatbots, automation tools, and smart workflows powered by cutting-edge AI technology.",
-    color: "#7b2fff",
+    color: "#7c3aed",
   },
   {
     icon: Smartphone,
     title: "Mobile Apps",
     description: "Cross-platform iOS & Android applications built with Flutter for seamless user experiences.",
-    color: "#00ffb4",
+    color: "#00d4aa",
   },
   {
     icon: ShoppingCart,
     title: "E-Commerce Platforms",
     description: "Full-featured online stores with payment integration, inventory management, and analytics.",
-    color: "#00d4ff",
+    color: "#00d4aa",
   },
   {
     icon: Cog,
     title: "Custom Solutions",
     description: "APIs, automation systems, SaaS tools, and bespoke digital solutions for unique needs.",
-    color: "#7b2fff",
+    color: "#7c3aed",
   },
 ]
 
@@ -47,20 +47,20 @@ export function Services() {
       {/* Background accent */}
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[600px] w-[800px] rounded-full bg-[#00ffb4]/[0.03] blur-[100px]"
+        className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[600px] w-[800px] rounded-full bg-[#00d4aa]/[0.03] blur-[100px]"
       />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         {/* Section header */}
         <div className="text-center mb-16">
-          <div className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-[#00ffb4]/20 bg-[#00ffb4]/5 px-4 py-1.5 text-xs font-mono text-[#00ffb4] mb-6">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#00ffb4]" />
+          <div className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-[#00d4aa]/20 bg-[#00d4aa]/5 px-4 py-1.5 text-xs font-mono text-[#00d4aa] mb-6">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#00d4aa]" />
             SERVICES
           </div>
-          <h2 className="animate-fade-up delay-100 font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#e8f0fe] mb-4">
+          <h2 className="animate-fade-up delay-100 font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f0f4ff] mb-4">
             What We Build
           </h2>
-          <p className="animate-fade-up delay-200 mx-auto max-w-2xl text-[#6b7c99] text-base sm:text-lg">
+          <p className="animate-fade-up delay-200 mx-auto max-w-2xl text-[#8b9bc8] text-base sm:text-lg">
             From concept to deployment, we create digital solutions that transform how your business operates.
           </p>
         </div>
@@ -88,10 +88,10 @@ export function Services() {
               </div>
 
               {/* Content */}
-              <h3 className="font-display text-xl font-semibold text-[#e8f0fe] mb-3 group-hover:text-[#00ffb4] transition-colors">
+              <h3 className="font-display text-xl font-semibold text-[#f0f4ff] mb-3 group-hover:text-[#00d4aa] transition-colors">
                 {service.title}
               </h3>
-              <p className="text-[#6b7c99] text-sm leading-relaxed">
+              <p className="text-[#8b9bc8] text-sm leading-relaxed">
                 {service.description}
               </p>
 

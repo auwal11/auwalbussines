@@ -8,39 +8,39 @@
    ═══════════════════════════════════════════════════════════ */
 
 :root {
-  /* Professional Enterprise Dark Palette */
-  --background: #0f1419;
-  --surface: #1a202c;
-  --card: #202a35;
-  --glass: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.05);
+  /* Cyberpunk Professional Dark Palette */
+  --background: #0a0f1e;
+  --surface: rgba(15, 25, 50, 0.85);
+  --card: rgba(15, 25, 50, 0.85);
+  --glass: rgba(0, 212, 170, 0.05);
+  --glass-border: rgba(0, 212, 170, 0.2);
   
-  /* Brand Colors - Professional Tech */
-  --primary: #3b82f6;
-  --primary-dim: rgba(59, 130, 246, 0.12);
-  --secondary: #1e40af;
-  --accent-cyan: #06b6d4;
-  --accent-magenta: #ec4899;
+  /* Brand Colors - Cyberpunk Teal & Purple */
+  --primary: #00d4aa;
+  --primary-dim: rgba(0, 212, 170, 0.15);
+  --secondary: #7c3aed;
+  --accent-cyan: #00d4aa;
+  --accent-magenta: #7c3aed;
   --warning: #f59e0b;
   --danger: #ef4444;
   
   /* Text */
-  --foreground: #f0f4f8;
-  --muted: #64748b;
-  --muted-foreground: #94a3b8;
+  --foreground: #f0f4ff;
+  --muted: #8b9bc8;
+  --muted-foreground: #8b9bc8;
   
   /* Borders */
-  --border: rgba(59, 130, 246, 0.12);
-  --border-hover: rgba(59, 130, 246, 0.25);
-  --ring: rgba(59, 130, 246, 0.35);
+  --border: rgba(0, 212, 170, 0.2);
+  --border-hover: rgba(0, 212, 170, 0.4);
+  --ring: rgba(0, 212, 170, 0.5);
   
   /* Radius */
   --radius: 0.75rem;
   
   /* Shadows */
-  --glow-sm: 0 0 20px rgba(59, 130, 246, 0.12);
-  --glow-md: 0 0 40px rgba(59, 130, 246, 0.15);
-  --glow-lg: 0 0 60px rgba(59, 130, 246, 0.2);
+  --glow-sm: 0 0 20px rgba(0, 212, 170, 0.15);
+  --glow-md: 0 0 40px rgba(0, 212, 170, 0.2);
+  --glow-lg: 0 0 60px rgba(0, 212, 170, 0.3);
 }
 
 @theme inline {
@@ -365,14 +365,14 @@
    ═══════════════════════════════════════════════════════════ */
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent-cyan) 100%);
+  background: linear-gradient(135deg, #00d4aa 0%, #7c3aed 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-purple {
-  background: linear-gradient(135deg, var(--accent-magenta) 0%, var(--primary) 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #00d4aa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -409,14 +409,14 @@
    ═══════════════════════════════════════════════════════════ */
 
 .divider-line {
-  background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.3) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 212, 170, 0.3) 50%, transparent 100%);
   height: 1px;
 }
 
 .divider-glow {
   background: linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%);
   height: 1px;
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 20px rgba(0, 212, 170, 0.3);
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -424,31 +424,31 @@
    ═══════════════════════════════════════════════════════════ */
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, #2563eb 100%);
+  background: linear-gradient(135deg, #00d4aa 0%, #7c3aed 100%);
   color: white;
   font-weight: 600;
   border-radius: var(--radius);
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 20px rgba(0, 212, 170, 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4), 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 30px rgba(0, 212, 170, 0.5), 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .btn-ghost {
   background: transparent;
-  border: 1px solid rgba(59, 130, 246, 0.3);
+  border: 1px solid rgba(0, 212, 170, 0.3);
   color: var(--primary);
   border-radius: var(--radius);
   transition: all 0.3s ease;
 }
 
 .btn-ghost:hover {
-  background: rgba(59, 130, 246, 0.08);
+  background: rgba(0, 212, 170, 0.1);
   border-color: var(--primary);
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 0 20px rgba(0, 212, 170, 0.25);
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -475,7 +475,7 @@
 
 /* ═══════════════════════════════════════════════════════════
    SCROLLBAR
-   ═══════════════��═══════════════════════════════════════════ */
+   ═════��═════════��═══════════════════════════════════════════ */
 
 ::-webkit-scrollbar {
   width: 8px;

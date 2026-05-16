@@ -19,20 +19,20 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-[#ffffff08] bg-[#020409]">
+    <footer className="relative border-t border-[#ffffff08] bg-[#0a0f1e]">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-[#00ffb4]/10 border border-[#00ffb4]/30 flex items-center justify-center">
-                <span className="font-display font-bold text-[#00ffb4] text-sm">A</span>
+              <div className="w-8 h-8 rounded-lg bg-[#00d4aa]/10 border border-[#00d4aa]/30 flex items-center justify-center">
+                <span className="font-display font-bold text-[#00d4aa] text-sm">A</span>
               </div>
-              <span className="font-display font-semibold text-[#e8f0fe] text-lg">
+              <span className="font-display font-semibold text-[#f0f4ff] text-lg">
                 Auwal Business
               </span>
             </Link>
-            <p className="text-[#6b7c99] text-sm leading-relaxed mb-6">
+            <p className="text-[#8b9bc8] text-sm leading-relaxed mb-6">
               Building smart websites and AI-powered applications that help businesses grow and compete in the modern digital economy.
             </p>
             {/* Social links */}
@@ -43,7 +43,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-[#0a1628] border border-[#ffffff08] flex items-center justify-center text-[#6b7c99] hover:text-[#00ffb4] hover:border-[#00ffb4]/30 transition-all"
+                  className="w-10 h-10 rounded-xl bg-[#0a1628] border border-[#ffffff08] flex items-center justify-center text-[#8b9bc8] hover:text-[#00d4aa] hover:border-[#00d4aa]/30 transition-all"
                   aria-label={social.label}
                 >
                   <social.icon className="h-5 w-5" />
@@ -54,7 +54,7 @@ export function Footer() {
 
           {/* Quick links */}
           <div>
-            <h4 className="font-mono text-xs uppercase tracking-wider text-[#6b7c99] mb-4">
+            <h4 className="font-mono text-xs uppercase tracking-wider text-[#8b9bc8] mb-4">
               Quick Links
             </h4>
             <ul className="space-y-3">
@@ -62,7 +62,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-[#6b7c99] hover:text-[#00ffb4] transition-colors text-sm"
+                    className="text-[#8b9bc8] hover:text-[#00d4aa] transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
@@ -73,7 +73,7 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="font-mono text-xs uppercase tracking-wider text-[#6b7c99] mb-4">
+            <h4 className="font-mono text-xs uppercase tracking-wider text-[#8b9bc8] mb-4">
               Legal
             </h4>
             <ul className="space-y-3">
@@ -81,7 +81,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-[#6b7c99] hover:text-[#00ffb4] transition-colors text-sm"
+                    className="text-[#8b9bc8] hover:text-[#00d4aa] transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
@@ -93,10 +93,10 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-[#ffffff08] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[#6b7c99] text-sm">
+          <p className="text-[#8b9bc8] text-sm">
             &copy; {new Date().getFullYear()} Auwal Business. All rights reserved.
           </p>
-          <p className="text-[#4a6080] text-xs font-mono">
+          <p className="text-[#6b7c99] text-xs font-mono">
             Built with Next.js &middot; Powered by AI
           </p>
         </div>

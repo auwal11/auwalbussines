@@ -92,13 +92,13 @@ export function Contact() {
       <section id="contact" className="relative py-24 sm:py-32">
         <div className="mx-auto max-w-2xl px-4 sm:px-6 text-center">
           <div className="glass-card p-12 rounded-3xl">
-            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#00ffb4]/10 flex items-center justify-center">
-              <CheckCircle className="h-10 w-10 text-[#00ffb4]" />
+            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#00d4aa]/10 flex items-center justify-center">
+              <CheckCircle className="h-10 w-10 text-[#00d4aa]" />
             </div>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#e8f0fe] mb-4">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#f0f4ff] mb-4">
               Request Submitted!
             </h2>
-            <p className="text-[#6b7c99] mb-8">
+            <p className="text-[#8b9bc8] mb-8">
               Thank you for your interest. We&apos;ll review your project details and get back to you within 24 hours.
             </p>
             <a
@@ -121,21 +121,21 @@ export function Contact() {
       {/* Background */}
       <div
         aria-hidden
-        className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-[#00ffb4]/[0.04] blur-[100px]"
+        className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-[#00d4aa]/[0.04] blur-[100px]"
       />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left column - Info */}
           <div>
-            <div className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-[#00ffb4]/20 bg-[#00ffb4]/5 px-4 py-1.5 text-xs font-mono text-[#00ffb4] mb-6">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#00ffb4]" />
+            <div className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-[#00d4aa]/20 bg-[#00d4aa]/5 px-4 py-1.5 text-xs font-mono text-[#00d4aa] mb-6">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#00d4aa]" />
               GET STARTED
             </div>
-            <h2 className="animate-fade-up delay-100 font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#e8f0fe] mb-6">
+            <h2 className="animate-fade-up delay-100 font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f0f4ff] mb-6">
               Start Your Project
             </h2>
-            <p className="animate-fade-up delay-200 text-[#6b7c99] text-lg mb-8 leading-relaxed">
+            <p className="animate-fade-up delay-200 text-[#8b9bc8] text-lg mb-8 leading-relaxed">
               Tell us about your business and project needs. Our AI will generate a customized proposal, and we&apos;ll reach out to discuss the details.
             </p>
 
@@ -143,14 +143,14 @@ export function Contact() {
             <div className="animate-fade-up delay-300 space-y-4">
               <a
                 href="mailto:awntechdigitalservices@gmail.com"
-                className="flex items-center gap-4 p-4 rounded-xl bg-[#0a1628]/50 border border-[#ffffff08] hover:border-[#00ffb4]/30 transition-colors group"
+                className="flex items-center gap-4 p-4 rounded-xl bg-[#0a1628]/50 border border-[#ffffff08] hover:border-[#00d4aa]/30 transition-colors group"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#00ffb4]/10 flex items-center justify-center">
-                  <Mail className="h-5 w-5 text-[#00ffb4]" />
+                <div className="w-12 h-12 rounded-xl bg-[#00d4aa]/10 flex items-center justify-center">
+                  <Mail className="h-5 w-5 text-[#00d4aa]" />
                 </div>
                 <div>
-                  <div className="text-xs font-mono text-[#6b7c99] uppercase">Email</div>
-                  <div className="text-[#e8f0fe] group-hover:text-[#00ffb4] transition-colors">
+                  <div className="text-xs font-mono text-[#8b9bc8] uppercase">Email</div>
+                  <div className="text-[#f0f4ff] group-hover:text-[#00d4aa] transition-colors">
                     awntechdigitalservices@gmail.com
                   </div>
                 </div>
@@ -159,25 +159,25 @@ export function Contact() {
                 href="https://wa.me/2348012345678"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 rounded-xl bg-[#0a1628]/50 border border-[#ffffff08] hover:border-[#00ffb4]/30 transition-colors group"
+                className="flex items-center gap-4 p-4 rounded-xl bg-[#0a1628]/50 border border-[#ffffff08] hover:border-[#00d4aa]/30 transition-colors group"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#00ffb4]/10 flex items-center justify-center">
-                  <Phone className="h-5 w-5 text-[#00ffb4]" />
+                <div className="w-12 h-12 rounded-xl bg-[#00d4aa]/10 flex items-center justify-center">
+                  <Phone className="h-5 w-5 text-[#00d4aa]" />
                 </div>
                 <div>
-                  <div className="text-xs font-mono text-[#6b7c99] uppercase">WhatsApp</div>
-                  <div className="text-[#e8f0fe] group-hover:text-[#00ffb4] transition-colors">
+                  <div className="text-xs font-mono text-[#8b9bc8] uppercase">WhatsApp</div>
+                  <div className="text-[#f0f4ff] group-hover:text-[#00d4aa] transition-colors">
                     +234 801 234 5678
                   </div>
                 </div>
               </a>
               <div className="flex items-center gap-4 p-4 rounded-xl bg-[#0a1628]/50 border border-[#ffffff08]">
-                <div className="w-12 h-12 rounded-xl bg-[#7b2fff]/10 flex items-center justify-center">
-                  <MapPin className="h-5 w-5 text-[#7b2fff]" />
+                <div className="w-12 h-12 rounded-xl bg-[#7c3aed]/10 flex items-center justify-center">
+                  <MapPin className="h-5 w-5 text-[#7c3aed]" />
                 </div>
                 <div>
-                  <div className="text-xs font-mono text-[#6b7c99] uppercase">Location</div>
-                  <div className="text-[#e8f0fe]">Nigeria (Remote Worldwide)</div>
+                  <div className="text-xs font-mono text-[#8b9bc8] uppercase">Location</div>
+                  <div className="text-[#f0f4ff]">Nigeria (Remote Worldwide)</div>
                 </div>
               </div>
             </div>
@@ -193,8 +193,8 @@ export function Contact() {
                     <div
                       className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-mono transition-colors ${
                         step >= s
-                          ? "bg-[#00ffb4] text-[#020409]"
-                          : "bg-[#ffffff08] text-[#6b7c99]"
+                          ? "bg-[#00d4aa] text-[#0a0f1e]"
+                          : "bg-[#ffffff08] text-[#8b9bc8]"
                       }`}
                     >
                       {s}
@@ -202,7 +202,7 @@ export function Contact() {
                     {s < 3 && (
                       <div
                         className={`flex-1 h-0.5 transition-colors ${
-                          step > s ? "bg-[#00ffb4]" : "bg-[#ffffff08]"
+                          step > s ? "bg-[#00d4aa]" : "bg-[#ffffff08]"
                         }`}
                       />
                     )}
@@ -213,11 +213,11 @@ export function Contact() {
               {/* Step 1: About You */}
               {step === 1 && (
                 <div className="space-y-6">
-                  <h3 className="font-display text-xl font-semibold text-[#e8f0fe]">
+                  <h3 className="font-display text-xl font-semibold text-[#f0f4ff]">
                     About You
                   </h3>
                   <div>
-                    <label className="block text-sm font-mono text-[#6b7c99] mb-2">
+                    <label className="block text-sm font-mono text-[#8b9bc8] mb-2">
                       Full Name *
                     </label>
                     <input
@@ -229,7 +229,7 @@ export function Contact() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-mono text-[#6b7c99] mb-2">
+                    <label className="block text-sm font-mono text-[#8b9bc8] mb-2">
                       Email Address *
                     </label>
                     <input
@@ -241,7 +241,7 @@ export function Contact() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-mono text-[#6b7c99] mb-2">
+                    <label className="block text-sm font-mono text-[#8b9bc8] mb-2">
                       Phone / WhatsApp
                     </label>
                     <input
@@ -265,11 +265,11 @@ export function Contact() {
               {/* Step 2: About Your Business */}
               {step === 2 && (
                 <div className="space-y-6">
-                  <h3 className="font-display text-xl font-semibold text-[#e8f0fe]">
+                  <h3 className="font-display text-xl font-semibold text-[#f0f4ff]">
                     About Your Business
                   </h3>
                   <div>
-                    <label className="block text-sm font-mono text-[#6b7c99] mb-2">
+                    <label className="block text-sm font-mono text-[#8b9bc8] mb-2">
                       Business Name *
                     </label>
                     <input
@@ -281,7 +281,7 @@ export function Contact() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-mono text-[#6b7c99] mb-2">
+                    <label className="block text-sm font-mono text-[#8b9bc8] mb-2">
                       Business Type *
                     </label>
                     <select
@@ -298,7 +298,7 @@ export function Contact() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-mono text-[#6b7c99] mb-2">
+                    <label className="block text-sm font-mono text-[#8b9bc8] mb-2">
                       Tell us about your business
                     </label>
                     <textarea
@@ -329,11 +329,11 @@ export function Contact() {
               {/* Step 3: Project Details */}
               {step === 3 && (
                 <div className="space-y-6">
-                  <h3 className="font-display text-xl font-semibold text-[#e8f0fe]">
+                  <h3 className="font-display text-xl font-semibold text-[#f0f4ff]">
                     Project Details
                   </h3>
                   <div>
-                    <label className="block text-sm font-mono text-[#6b7c99] mb-3">
+                    <label className="block text-sm font-mono text-[#8b9bc8] mb-3">
                       What do you need? *
                     </label>
                     <div className="grid grid-cols-2 gap-2">
@@ -344,8 +344,8 @@ export function Contact() {
                           onClick={() => handleNeedToggle(need)}
                           className={`px-3 py-2 rounded-lg text-sm text-left transition-all ${
                             formData.needs.includes(need)
-                              ? "bg-[#00ffb4] text-[#020409] font-medium"
-                              : "bg-[#ffffff05] text-[#6b7c99] border border-[#ffffff08] hover:border-[#00ffb4]/30"
+                              ? "bg-[#00d4aa] text-[#0a0f1e] font-medium"
+                              : "bg-[#ffffff05] text-[#8b9bc8] border border-[#ffffff08] hover:border-[#00d4aa]/30"
                           }`}
                         >
                           {need}
@@ -354,7 +354,7 @@ export function Contact() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-mono text-[#6b7c99] mb-2">
+                    <label className="block text-sm font-mono text-[#8b9bc8] mb-2">
                       Budget Range
                     </label>
                     <select
@@ -371,7 +371,7 @@ export function Contact() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-mono text-[#6b7c99] mb-2">
+                    <label className="block text-sm font-mono text-[#8b9bc8] mb-2">
                       Timeline
                     </label>
                     <input
