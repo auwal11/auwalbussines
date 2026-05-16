@@ -23,14 +23,14 @@ export function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 backdrop-blur-xl bg-zinc-950/70 border-b transition-colors ${
+      className={`fixed inset-x-0 top-0 z-50 backdrop-blur-xl bg-[#0F172A]/70 border-b transition-colors ${
         scrolled ? "border-zinc-800/80" : "border-zinc-800/30"
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
         <a
           href="#top"
-          className="group flex items-center gap-2 font-mono text-sm font-semibold tracking-[0.2em] text-zinc-100"
+          className="group flex items-center gap-2 font-mono text-sm font-semibold tracking-[0.2em] text-[#F8FAFC]"
           aria-label="AUWAL home"
         >
           <span aria-hidden className="inline-block h-1.5 w-1.5 rounded-full bg-amber-400 shadow-[0_0_12px_rgba(251,191,36,0.7)]" />
@@ -44,7 +44,7 @@ export function Header() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="group flex items-center gap-1.5 text-zinc-400 hover:text-amber-300 transition-colors"
+                  className="group flex items-center gap-1.5 text-[#94A3B8] hover:text-amber-300 transition-colors"
                 >
                   <span className="text-zinc-600 group-hover:text-amber-400/70 transition-colors">
                     {String(i + 1).padStart(2, "0")}
@@ -61,13 +61,13 @@ export function Header() {
             <span className="absolute inset-0 rounded-full bg-amber-400 opacity-75 animate-ping" />
             <span className="relative h-2 w-2 rounded-full bg-amber-400" />
           </span>
-          <span className="font-mono text-xs text-zinc-300">Available for work</span>
+          <span className="font-mono text-xs text-[#CBD5E1]">Available for work</span>
         </div>
 
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex items-center justify-center rounded-md p-2 text-zinc-300 hover:bg-zinc-800/60 md:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-[#CBD5E1] hover:bg-zinc-800/60 md:hidden"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -79,7 +79,7 @@ export function Header() {
       {open ? (
         <div
           id="mobile-nav"
-          className="border-t border-zinc-800/60 bg-zinc-950/90 backdrop-blur-xl md:hidden"
+          className="border-t border-zinc-800/60 bg-[#0F172A]/90 backdrop-blur-xl md:hidden"
         >
           <ul className="flex flex-col gap-1 px-4 py-3 font-mono text-sm">
             {NAV_LINKS.map((link, i) => (
@@ -87,7 +87,7 @@ export function Header() {
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-2 rounded-md px-3 py-2 text-zinc-300 hover:bg-zinc-800/60 hover:text-amber-300"
+                  className="flex items-center gap-2 rounded-md px-3 py-2 text-[#CBD5E1] hover:bg-zinc-800/60 hover:text-amber-300"
                 >
                   <span className="text-zinc-600">{String(i + 1).padStart(2, "0")}</span>
                   {link.label}
@@ -99,7 +99,7 @@ export function Header() {
                 <span className="absolute inset-0 rounded-full bg-amber-400 opacity-75 animate-ping" />
                 <span className="relative h-2 w-2 rounded-full bg-amber-400" />
               </span>
-              <span className="text-xs text-zinc-300">Available for work</span>
+              <span className="text-xs text-[#CBD5E1]">Available for work</span>
             </li>
           </ul>
         </div>

@@ -601,7 +601,7 @@ Example:
             ref={cvRef}
             className={`overflow-hidden rounded-xl border ${
               darkPreview
-                ? "border-border bg-zinc-900 text-zinc-100"
+                ? "border-border bg-[#1E293B] text-[#F8FAFC]"
                 : "border-zinc-300 bg-white text-zinc-900"
             }`}
             style={{ fontFamily: "'Crimson Pro', Georgia, serif" }}
@@ -718,7 +718,7 @@ Example:
                           key={i}
                           className={`rounded-full px-2 py-0.5 text-xs ${
                             darkPreview
-                              ? "bg-zinc-800 text-zinc-300"
+                              ? "bg-zinc-800 text-[#CBD5E1]"
                               : "bg-zinc-100 text-zinc-700"
                           }`}
                         >
@@ -750,10 +750,10 @@ Example:
             ) : (
               <div className="flex min-h-96 flex-col items-center justify-center p-8 text-center">
                 <FileText
-                  className={`mb-4 h-16 w-16 ${darkPreview ? "text-zinc-700" : "text-zinc-300"}`}
+                  className={`mb-4 h-16 w-16 ${darkPreview ? "text-zinc-700" : "text-[#CBD5E1]"}`}
                 />
                 <p
-                  className={`text-sm ${darkPreview ? "text-zinc-500" : "text-zinc-400"}`}
+                  className={`text-sm ${darkPreview ? "text-zinc-500" : "text-[#94A3B8]"}`}
                 >
                   Your AI-generated CV will appear here
                 </p>

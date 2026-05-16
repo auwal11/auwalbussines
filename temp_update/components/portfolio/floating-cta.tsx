@@ -31,7 +31,7 @@ export function FloatingCTA() {
     <a
       href="#contact"
       aria-label="Open contact form"
-      className={`fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-zinc-900/90 px-4 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-amber-300 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-300 hover:border-amber-400/60 hover:bg-zinc-900 hover:text-amber-200 hover:shadow-[0_8px_40px_-6px_rgba(251,191,36,0.4)] sm:bottom-6 sm:right-6 ${
+      className={`fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-[#1E293B]/90 px-4 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-amber-300 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-300 hover:border-amber-400/60 hover:bg-[#1E293B] hover:text-amber-200 hover:shadow-[0_8px_40px_-6px_rgba(251,191,36,0.4)] sm:bottom-6 sm:right-6 ${
         visible
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-3 opacity-0"

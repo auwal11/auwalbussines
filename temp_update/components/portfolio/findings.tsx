@@ -56,11 +56,11 @@ export function Findings() {
               <br />
               what I look at.
             </h2>
-            <p className="mt-4 max-w-md text-pretty text-sm leading-relaxed text-zinc-400">
+            <p className="mt-4 max-w-md text-pretty text-sm leading-relaxed text-[#94A3B8]">
               Active across major bug bounty platforms and audit competitions. Specific findings,
               clients and proofs-of-concept are shared privately under coordinated disclosure.
             </p>
-            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/60 px-3 py-1.5 font-mono text-[11px] text-zinc-400">
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-[#1E293B]/60 px-3 py-1.5 font-mono text-[11px] text-[#94A3B8]">
               <Lock className="h-3 w-3 text-amber-300" />
               Details disclosed under NDA / responsible disclosure
             </div>
@@ -80,14 +80,14 @@ export function Findings() {
                     <span className="col-span-1 font-mono text-[11px] tracking-widest text-zinc-600">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="col-span-5 font-mono text-base font-semibold text-zinc-100 group-hover:text-amber-300 transition-colors sm:col-span-4">
+                    <span className="col-span-5 font-mono text-base font-semibold text-[#F8FAFC] group-hover:text-amber-300 transition-colors sm:col-span-4">
                       {p.name}
                     </span>
-                    <span className="col-span-4 hidden text-xs text-zinc-400 sm:inline-block sm:col-span-5">
+                    <span className="col-span-4 hidden text-xs text-[#94A3B8] sm:inline-block sm:col-span-5">
                       {p.scope}
                     </span>
                     <span className="col-span-6 inline-flex justify-end sm:col-span-2">
-                      <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">
+                      <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-[#94A3B8]">
                         <span
                           className={`h-1.5 w-1.5 rounded-full ${
                             p.status === "Active" ? "bg-amber-400" : "bg-zinc-500"
@@ -109,12 +109,12 @@ export function Findings() {
                 {DOMAINS.map((d) => (
                   <li
                     key={d.label}
-                    className="group rounded-lg border border-zinc-800/80 bg-zinc-900/30 p-5 transition hover:border-amber-400/40 hover:bg-zinc-900/60"
+                    className="group rounded-lg border border-zinc-800/80 bg-[#1E293B]/30 p-5 transition hover:border-amber-400/40 hover:bg-[#1E293B]/60"
                   >
-                    <p className="font-mono text-sm font-semibold text-zinc-100 group-hover:text-amber-300 transition-colors">
+                    <p className="font-mono text-sm font-semibold text-[#F8FAFC] group-hover:text-amber-300 transition-colors">
                       {d.label}
                     </p>
-                    <p className="mt-2 text-xs leading-relaxed text-zinc-400">{d.blurb}</p>
+                    <p className="mt-2 text-xs leading-relaxed text-[#94A3B8]">{d.blurb}</p>
                   </li>
                 ))}
               </ul>

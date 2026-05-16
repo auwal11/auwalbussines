@@ -37,13 +37,13 @@ export function About() {
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
-            <div className="h-full rounded-xl border border-zinc-800/80 bg-zinc-900/40 p-6">
+            <div className="h-full rounded-xl border border-zinc-800/80 bg-[#1E293B]/40 p-6">
               <div className="mb-5 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-amber-400/30 bg-amber-400/[0.08] text-amber-300">
                     <UserRound className="h-4 w-4" />
                   </span>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-zinc-300">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#CBD5E1]">
                     whoami
                   </p>
                 </div>
@@ -66,19 +66,19 @@ export function About() {
           </Reveal>
 
           <Reveal className="lg:col-span-7" delayMs={120}>
-            <div className="flex h-full flex-col gap-7 rounded-xl border border-zinc-800/80 bg-zinc-900/40 p-6">
+            <div className="flex h-full flex-col gap-7 rounded-xl border border-zinc-800/80 bg-[#1E293B]/40 p-6">
               <div>
                 <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-amber-300">
                   $ cat about.md
                 </p>
-                <p className="mt-3 text-pretty text-base leading-relaxed text-zinc-300">
+                <p className="mt-3 text-pretty text-base leading-relaxed text-[#CBD5E1]">
                   Independent Web3 security researcher specialized in identifying critical
                   vulnerabilities across DeFi protocols and Web3 infrastructure. Bug bounty hunter
                   since <span className="text-amber-300">2020</span>, with active engagements on{" "}
-                  <span className="text-zinc-100">HackerOne</span>,{" "}
-                  <span className="text-zinc-100">HackenProof</span>,{" "}
-                  <span className="text-zinc-100">Code4rena</span>, and{" "}
-                  <span className="text-zinc-100">Cantina</span> — focused on logic bugs, access
+                  <span className="text-[#F8FAFC]">HackerOne</span>,{" "}
+                  <span className="text-[#F8FAFC]">HackenProof</span>,{" "}
+                  <span className="text-[#F8FAFC]">Code4rena</span>, and{" "}
+                  <span className="text-[#F8FAFC]">Cantina</span> — focused on logic bugs, access
                   control flaws and economic exploits in smart contracts written in Solidity and
                   Rust.
                 </p>
@@ -88,7 +88,7 @@ export function About() {
                 {SKILL_BARS.map((s, i) => (
                   <div key={s.label}>
                     <div className="mb-1.5 flex items-center justify-between font-mono text-[11px]">
-                      <span className="text-zinc-300">{s.label}</span>
+                      <span className="text-[#CBD5E1]">{s.label}</span>
                       <span className="text-amber-300">{s.pct}%</span>
                     </div>
                     <div className="h-1 w-full overflow-hidden rounded-full bg-zinc-800">

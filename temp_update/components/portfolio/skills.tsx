@@ -67,7 +67,7 @@ export function Skills() {
           <h2 className="mt-3 font-mono text-3xl font-bold tracking-tight text-zinc-50 sm:text-4xl">
             Technical arsenal.
           </h2>
-          <p className="mt-4 text-sm leading-relaxed text-zinc-400">
+          <p className="mt-4 text-sm leading-relaxed text-[#94A3B8]">
             Languages, tooling and protocol expertise used day-to-day in audits and bug bounty
             research.
           </p>
@@ -80,7 +80,7 @@ export function Skills() {
                 <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-zinc-500">
                   {row.label}
                 </span>
-                <span aria-hidden className="h-px flex-1 bg-zinc-900" />
+                <span aria-hidden className="h-px flex-1 bg-[#1E293B]" />
                 <span className="font-mono text-[10px] tracking-widest text-zinc-600">
                   {String(row.items.length).padStart(2, "0")}
                 </span>
@@ -90,12 +90,12 @@ export function Skills() {
                   const Icon = skill.icon
                   return (
                     <Reveal as="li" key={skill.name} delayMs={rowIdx * 60 + i * 50}>
-                      <div className="group flex h-full items-start gap-3 bg-zinc-950 p-5 transition hover:bg-zinc-900">
-                        <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-zinc-800 bg-zinc-900 text-zinc-300 transition group-hover:border-amber-400/40 group-hover:text-amber-300">
+                      <div className="group flex h-full items-start gap-3 bg-[#0F172A] p-5 transition hover:bg-[#1E293B]">
+                        <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-zinc-800 bg-[#1E293B] text-[#CBD5E1] transition group-hover:border-amber-400/40 group-hover:text-amber-300">
                           <Icon className="h-4 w-4" />
                         </span>
                         <div className="min-w-0">
-                          <p className="truncate font-mono text-sm font-medium text-zinc-100">
+                          <p className="truncate font-mono text-sm font-medium text-[#F8FAFC]">
                             {skill.name}
                           </p>
                           <p className="mt-0.5 truncate text-[11px] text-zinc-500">{skill.desc}</p>

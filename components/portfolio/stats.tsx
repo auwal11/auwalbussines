@@ -43,16 +43,16 @@ export function Stats() {
         Key statistics
       </h2>
       <div className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-zinc-800/80 bg-gradient-to-b from-zinc-900/60 to-zinc-900/20">
+        <div className="rounded-2xl border border-[rgba(0,229,255,0.1)]/80 bg-gradient-to-b from-zinc-900/60 to-zinc-900/20">
           <ul className="grid grid-cols-1 divide-zinc-800/80 sm:grid-cols-3 sm:divide-x">
             {STATS.map(({ icon: Icon, value, suffix, label, sub, isYear }, i) => (
               <Reveal as="li" key={label} delayMs={i * 100}>
                 <div className="group flex h-full flex-col gap-4 p-7">
                   <div className="flex items-center justify-between">
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-amber-400/20 bg-amber-400/[0.08] text-amber-300 transition group-hover:border-amber-400/40">
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-amber-400/20 bg-[#00E5FF]/[0.08] text-[#00E5FF] transition group-hover:border-amber-400/40">
                       <Icon className="h-4 w-4" />
                     </span>
-                    <span aria-hidden className="font-mono text-[10px] tracking-[0.25em] text-zinc-600">
+                    <span aria-hidden className="font-mono text-[10px] tracking-[0.25em] text-[#64748B]">
                       / {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
@@ -64,8 +64,8 @@ export function Stats() {
                     )}
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-zinc-200">{label}</p>
-                    <p className="mt-1 font-mono text-[11px] uppercase tracking-wider text-zinc-500">
+                    <p className="text-sm font-medium text-[#CBD5E1]">{label}</p>
+                    <p className="mt-1 font-mono text-[11px] uppercase tracking-wider text-[#64748B]">
                       {sub}
                     </p>
                   </div>

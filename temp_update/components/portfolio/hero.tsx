@@ -44,15 +44,15 @@ export function Hero() {
             <dl className="mt-10 space-y-5 font-mono text-[11px]">
               <div>
                 <dt className="uppercase tracking-[0.2em] text-zinc-600">Location</dt>
-                <dd className="mt-1 text-zinc-300">Nigeria</dd>
+                <dd className="mt-1 text-[#CBD5E1]">Nigeria</dd>
               </div>
               <div>
                 <dt className="uppercase tracking-[0.2em] text-zinc-600">Active Since</dt>
-                <dd className="mt-1 text-zinc-300">2020</dd>
+                <dd className="mt-1 text-[#CBD5E1]">2020</dd>
               </div>
               <div>
                 <dt className="uppercase tracking-[0.2em] text-zinc-600">Discipline</dt>
-                <dd className="mt-1 text-zinc-300">Web3 Security</dd>
+                <dd className="mt-1 text-[#CBD5E1]">Web3 Security</dd>
               </div>
             </dl>
           </aside>
@@ -71,14 +71,14 @@ export function Hero() {
 
             <div aria-hidden className="animate-fade-up delay-200 mt-6 h-px w-24 bg-amber-400/50" />
 
-            <p className="animate-fade-up delay-200 mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-zinc-300 sm:text-xl">
+            <p className="animate-fade-up delay-200 mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-[#CBD5E1] sm:text-xl">
               Independent{" "}
               <span className="text-amber-300">security researcher</span> &amp; software developer
               hunting critical vulnerabilities in DeFi protocols, smart contracts, and Web3
               infrastructure since 2020.
             </p>
 
-            <div className="animate-fade-up delay-300 mt-5 flex min-h-[1.75rem] items-center font-mono text-sm text-zinc-400">
+            <div className="animate-fade-up delay-300 mt-5 flex min-h-[1.75rem] items-center font-mono text-sm text-[#94A3B8]">
               <span className="mr-2 text-amber-400/70">{"$"}</span>
               <TypingText
                 words={[
@@ -102,7 +102,7 @@ export function Hero() {
                 href="https://github.com/auwntech-audit"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-center justify-center gap-2 rounded-md border border-zinc-700 bg-zinc-900/40 px-5 py-2.5 font-mono text-sm font-medium text-zinc-200 transition hover:border-amber-400/50 hover:text-amber-300"
+                className="inline-flex items-center justify-center gap-2 rounded-md border border-zinc-700 bg-[#1E293B]/40 px-5 py-2.5 font-mono text-sm font-medium text-zinc-200 transition hover:border-amber-400/50 hover:text-amber-300"
               >
                 <Github className="h-4 w-4" />
                 GitHub

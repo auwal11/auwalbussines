@@ -99,13 +99,13 @@ export function Contact() {
     <section id="contact" className="relative scroll-mt-24 border-t border-zinc-900">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
         <Reveal className="max-w-2xl">
-          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-amber-300">
+          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-[#00E5FF]">
             / 04 — Contact
           </p>
           <h2 className="mt-3 font-mono text-3xl font-bold tracking-tight text-zinc-50 sm:text-4xl">
             Let&apos;s connect.
           </h2>
-          <p className="mt-4 text-pretty text-sm leading-relaxed text-zinc-400">
+          <p className="mt-4 text-pretty text-sm leading-relaxed text-[#94A3B8]">
             Open to security collaborations, audit engagements, and bug bounty partnerships.
             Messages are delivered straight to my inbox.
           </p>
@@ -116,7 +116,7 @@ export function Contact() {
             <form
               onSubmit={onSubmit}
               noValidate
-              className="relative overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-6 sm:p-8"
+              className="relative overflow-hidden rounded-2xl border border-[rgba(0,229,255,0.1)]/80 bg-[#1E293B]/40 p-6 sm:p-8"
             >
               {/* Subtle top accent line */}
               <div
@@ -140,7 +140,7 @@ export function Contact() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-400"
+                    className="block font-mono text-[10px] uppercase tracking-[0.2em] text-[#94A3B8]"
                   >
                     Name
                   </label>
@@ -153,14 +153,14 @@ export function Contact() {
                     maxLength={120}
                     autoComplete="name"
                     disabled={submitting}
-                    className="mt-2 block w-full rounded-md border border-zinc-700 bg-zinc-900/70 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-600 focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
+                    className="mt-2 block w-full rounded-md border border-[rgba(0,229,255,0.15)] bg-[#1E293B]/70 px-3 py-2 text-sm text-[#F8FAFC] placeholder:text-[#64748B] focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
                     placeholder="Satoshi N."
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="email"
-                    className="block font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-400"
+                    className="block font-mono text-[10px] uppercase tracking-[0.2em] text-[#94A3B8]"
                   >
                     Your Email
                   </label>
@@ -172,7 +172,7 @@ export function Contact() {
                     maxLength={200}
                     autoComplete="email"
                     disabled={submitting}
-                    className="mt-2 block w-full rounded-md border border-zinc-700 bg-zinc-900/70 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-600 focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
+                    className="mt-2 block w-full rounded-md border border-[rgba(0,229,255,0.15)] bg-[#1E293B]/70 px-3 py-2 text-sm text-[#F8FAFC] placeholder:text-[#64748B] focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
                     placeholder="you@protocol.xyz"
                   />
                 </div>
@@ -181,7 +181,7 @@ export function Contact() {
               <div className="mt-5">
                 <label
                   htmlFor="subject"
-                  className="block font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-400"
+                  className="block font-mono text-[10px] uppercase tracking-[0.2em] text-[#94A3B8]"
                 >
                   Subject
                 </label>
@@ -191,17 +191,17 @@ export function Contact() {
                     name="subject"
                     defaultValue={SUBJECTS[0]}
                     disabled={submitting}
-                    className="block w-full appearance-none rounded-md border border-zinc-700 bg-zinc-900/70 px-3 py-2 pr-9 text-sm text-zinc-100 focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
+                    className="block w-full appearance-none rounded-md border border-[rgba(0,229,255,0.15)] bg-[#1E293B]/70 px-3 py-2 pr-9 text-sm text-[#F8FAFC] focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
                   >
                     {SUBJECTS.map((s) => (
-                      <option key={s} value={s} className="bg-zinc-900">
+                      <option key={s} value={s} className="bg-[#1E293B]">
                         {s}
                       </option>
                     ))}
                   </select>
                   <ChevronDown
                     aria-hidden
-                    className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-zinc-400"
+                    className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#94A3B8]"
                   />
                 </div>
               </div>
@@ -209,7 +209,7 @@ export function Contact() {
               <div className="mt-5">
                 <label
                   htmlFor="message"
-                  className="block font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-400"
+                  className="block font-mono text-[10px] uppercase tracking-[0.2em] text-[#94A3B8]"
                 >
                   Message
                 </label>
@@ -221,7 +221,7 @@ export function Contact() {
                   maxLength={5000}
                   rows={5}
                   disabled={submitting}
-                  className="mt-2 block w-full rounded-md border border-zinc-700 bg-zinc-900/70 px-3 py-2 text-sm text-zinc-100 placeholder:text-zinc-600 focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
+                  className="mt-2 block w-full rounded-md border border-[rgba(0,229,255,0.15)] bg-[#1E293B]/70 px-3 py-2 text-sm text-[#F8FAFC] placeholder:text-[#64748B] focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
                   placeholder="Briefly describe your protocol or engagement scope..."
                 />
               </div>
@@ -231,7 +231,7 @@ export function Contact() {
                   role="status"
                   aria-live="polite"
                   className={`font-mono text-[11px] ${
-                    sent ? "text-amber-300" : "text-zinc-500"
+                    sent ? "text-[#00E5FF]" : "text-[#64748B]"
                   }`}
                 >
                   {sent ? "// transmission received" : "// encrypted in transit"}
@@ -239,7 +239,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="inline-flex items-center gap-2 rounded-md bg-amber-400 px-5 py-2.5 font-mono text-sm font-semibold text-zinc-950 transition hover:bg-amber-300 hover:shadow-[0_0_28px_-4px_rgba(251,191,36,0.6)] disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
+                  className="inline-flex items-center gap-2 rounded-md bg-[#00E5FF] px-5 py-2.5 font-mono text-sm font-semibold text-zinc-950 transition hover:bg-[rgba(0,229,255,0.08)]-300 hover:shadow-[0_0_28px_-4px_rgba(251,191,36,0.6)] disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
                 >
                   {submitting ? (
                     <>
@@ -265,16 +265,16 @@ export function Contact() {
                     href={href}
                     target={href.startsWith("http") ? "_blank" : undefined}
                     rel={href.startsWith("http") ? "noreferrer noopener" : undefined}
-                    className="group flex items-center gap-3 rounded-xl border border-zinc-800/80 bg-zinc-900/40 p-4 transition hover:-translate-y-0.5 hover:border-amber-400/40 hover:bg-zinc-900/70"
+                    className="group flex items-center gap-3 rounded-xl border border-[rgba(0,229,255,0.1)]/80 bg-[#1E293B]/40 p-4 transition hover:-translate-y-0.5 hover:border-amber-400/40 hover:bg-[#1E293B]/70"
                   >
-                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-zinc-800 bg-zinc-950 text-zinc-300 transition group-hover:border-amber-400/40 group-hover:text-amber-300">
+                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-[rgba(0,229,255,0.1)] bg-[#0F172A] text-[#CBD5E1] transition group-hover:border-amber-400/40 group-hover:text-[#00E5FF]">
                       <Icon className="h-4 w-4" />
                     </span>
                     <div className="min-w-0 flex-1">
-                      <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">
+                      <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#64748B]">
                         {label}
                       </p>
-                      <p className="truncate text-sm text-zinc-200 group-hover:text-amber-300">
+                      <p className="truncate text-sm text-[#CBD5E1] group-hover:text-[#00E5FF]">
                         {handle}
                       </p>
                     </div>
