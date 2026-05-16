@@ -601,7 +601,7 @@ Example:
             ref={cvRef}
             className={`overflow-hidden rounded-xl border ${
               darkPreview
-                ? "border-border bg-[#1E293B] text-[#F8FAFC]"
+                ? "border-border bg-[#0F0E1A] text-[#F8FAFC]"
                 : "border-zinc-300 bg-white text-zinc-900"
             }`}
             style={{ fontFamily: "'Crimson Pro', Georgia, serif" }}

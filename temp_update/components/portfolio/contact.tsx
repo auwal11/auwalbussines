@@ -116,7 +116,7 @@ export function Contact() {
             <form
               onSubmit={onSubmit}
               noValidate
-              className="relative overflow-hidden rounded-2xl border border-zinc-800/80 bg-[#1E293B]/40 p-6 sm:p-8"
+              className="relative overflow-hidden rounded-2xl border border-zinc-800/80 bg-[#0F0E1A]/40 p-6 sm:p-8"
             >
               {/* Subtle top accent line */}
               <div
@@ -153,7 +153,7 @@ export function Contact() {
                     maxLength={120}
                     autoComplete="name"
                     disabled={submitting}
-                    className="mt-2 block w-full rounded-md border border-zinc-700 bg-[#1E293B]/70 px-3 py-2 text-sm text-[#F8FAFC] placeholder:text-zinc-600 focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
+                    className="mt-2 block w-full rounded-md border border-zinc-700 bg-[#0F0E1A]/70 px-3 py-2 text-sm text-[#F8FAFC] placeholder:text-zinc-600 focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
                     placeholder="Satoshi N."
                   />
                 </div>
@@ -172,7 +172,7 @@ export function Contact() {
                     maxLength={200}
                     autoComplete="email"
                     disabled={submitting}
-                    className="mt-2 block w-full rounded-md border border-zinc-700 bg-[#1E293B]/70 px-3 py-2 text-sm text-[#F8FAFC] placeholder:text-zinc-600 focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
+                    className="mt-2 block w-full rounded-md border border-zinc-700 bg-[#0F0E1A]/70 px-3 py-2 text-sm text-[#F8FAFC] placeholder:text-zinc-600 focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
                     placeholder="you@protocol.xyz"
                   />
                 </div>
@@ -191,10 +191,10 @@ export function Contact() {
                     name="subject"
                     defaultValue={SUBJECTS[0]}
                     disabled={submitting}
-                    className="block w-full appearance-none rounded-md border border-zinc-700 bg-[#1E293B]/70 px-3 py-2 pr-9 text-sm text-[#F8FAFC] focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
+                    className="block w-full appearance-none rounded-md border border-zinc-700 bg-[#0F0E1A]/70 px-3 py-2 pr-9 text-sm text-[#F8FAFC] focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
                   >
                     {SUBJECTS.map((s) => (
-                      <option key={s} value={s} className="bg-[#1E293B]">
+                      <option key={s} value={s} className="bg-[#0F0E1A]">
                         {s}
                       </option>
                     ))}
@@ -221,7 +221,7 @@ export function Contact() {
                   maxLength={5000}
                   rows={5}
                   disabled={submitting}
-                  className="mt-2 block w-full rounded-md border border-zinc-700 bg-[#1E293B]/70 px-3 py-2 text-sm text-[#F8FAFC] placeholder:text-zinc-600 focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
+                  className="mt-2 block w-full rounded-md border border-zinc-700 bg-[#0F0E1A]/70 px-3 py-2 text-sm text-[#F8FAFC] placeholder:text-zinc-600 focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
                   placeholder="Briefly describe your protocol or engagement scope..."
                 />
               </div>
@@ -265,9 +265,9 @@ export function Contact() {
                     href={href}
                     target={href.startsWith("http") ? "_blank" : undefined}
                     rel={href.startsWith("http") ? "noreferrer noopener" : undefined}
-                    className="group flex items-center gap-3 rounded-xl border border-zinc-800/80 bg-[#1E293B]/40 p-4 transition hover:-translate-y-0.5 hover:border-amber-400/40 hover:bg-[#1E293B]/70"
+                    className="group flex items-center gap-3 rounded-xl border border-zinc-800/80 bg-[#0F0E1A]/40 p-4 transition hover:-translate-y-0.5 hover:border-amber-400/40 hover:bg-[#0F0E1A]/70"
                   >
-                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-zinc-800 bg-[#0F172A] text-[#CBD5E1] transition group-hover:border-amber-400/40 group-hover:text-amber-300">
+                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-zinc-800 bg-[#09080E] text-[#CBD5E1] transition group-hover:border-amber-400/40 group-hover:text-amber-300">
                       <Icon className="h-4 w-4" />
                     </span>
                     <div className="min-w-0 flex-1">

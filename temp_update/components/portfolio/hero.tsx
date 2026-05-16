@@ -102,7 +102,7 @@ export function Hero() {
                 href="https://github.com/auwntech-audit"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-center justify-center gap-2 rounded-md border border-zinc-700 bg-[#1E293B]/40 px-5 py-2.5 font-mono text-sm font-medium text-zinc-200 transition hover:border-amber-400/50 hover:text-amber-300"
+                className="inline-flex items-center justify-center gap-2 rounded-md border border-zinc-700 bg-[#0F0E1A]/40 px-5 py-2.5 font-mono text-sm font-medium text-zinc-200 transition hover:border-amber-400/50 hover:text-amber-300"
               >
                 <Github className="h-4 w-4" />
                 GitHub

@@ -80,7 +80,7 @@ export function Skills() {
                 <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-zinc-500">
                   {row.label}
                 </span>
-                <span aria-hidden className="h-px flex-1 bg-[#1E293B]" />
+                <span aria-hidden className="h-px flex-1 bg-[#0F0E1A]" />
                 <span className="font-mono text-[10px] tracking-widest text-zinc-600">
                   {String(row.items.length).padStart(2, "0")}
                 </span>
@@ -90,8 +90,8 @@ export function Skills() {
                   const Icon = skill.icon
                   return (
                     <Reveal as="li" key={skill.name} delayMs={rowIdx * 60 + i * 50}>
-                      <div className="group flex h-full items-start gap-3 bg-[#0F172A] p-5 transition hover:bg-[#1E293B]">
-                        <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-zinc-800 bg-[#1E293B] text-[#CBD5E1] transition group-hover:border-amber-400/40 group-hover:text-amber-300">
+                      <div className="group flex h-full items-start gap-3 bg-[#09080E] p-5 transition hover:bg-[#0F0E1A]">
+                        <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-zinc-800 bg-[#0F0E1A] text-[#CBD5E1] transition group-hover:border-amber-400/40 group-hover:text-amber-300">
                           <Icon className="h-4 w-4" />
                         </span>
                         <div className="min-w-0">

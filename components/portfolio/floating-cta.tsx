@@ -31,15 +31,15 @@ export function FloatingCTA() {
     <a
       href="#contact"
       aria-label="Open contact form"
-      className={`fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-[#1E293B]/90 px-4 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#00E5FF] shadow-[0_8px_30px_-6px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-300 hover:border-amber-400/60 hover:bg-[#1E293B] hover:text-[#00E5FF]-200 hover:shadow-[0_8px_40px_-6px_rgba(251,191,36,0.4)] sm:bottom-6 sm:right-6 ${
+      className={`fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-[#0F0E1A]/90 px-4 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#FF6B00] shadow-[0_8px_30px_-6px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-300 hover:border-amber-400/60 hover:bg-[#0F0E1A] hover:text-[#FF6B00]-200 hover:shadow-[0_8px_40px_-6px_rgba(251,191,36,0.4)] sm:bottom-6 sm:right-6 ${
         visible
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-3 opacity-0"
       }`}
     >
       <span className="relative flex h-2 w-2">
-        <span className="absolute inset-0 rounded-full bg-[#00E5FF] opacity-75 animate-ping" />
-        <span className="relative h-2 w-2 rounded-full bg-[#00E5FF]" />
+        <span className="absolute inset-0 rounded-full bg-[#FF6B00] opacity-75 animate-ping" />
+        <span className="relative h-2 w-2 rounded-full bg-[#FF6B00]" />
       </span>
       <MessageSquareText className="h-3.5 w-3.5" />
       Hire me

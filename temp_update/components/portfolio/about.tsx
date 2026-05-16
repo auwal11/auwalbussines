@@ -37,7 +37,7 @@ export function About() {
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
-            <div className="h-full rounded-xl border border-zinc-800/80 bg-[#1E293B]/40 p-6">
+            <div className="h-full rounded-xl border border-zinc-800/80 bg-[#0F0E1A]/40 p-6">
               <div className="mb-5 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-amber-400/30 bg-amber-400/[0.08] text-amber-300">
@@ -66,7 +66,7 @@ export function About() {
           </Reveal>
 
           <Reveal className="lg:col-span-7" delayMs={120}>
-            <div className="flex h-full flex-col gap-7 rounded-xl border border-zinc-800/80 bg-[#1E293B]/40 p-6">
+            <div className="flex h-full flex-col gap-7 rounded-xl border border-zinc-800/80 bg-[#0F0E1A]/40 p-6">
               <div>
                 <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-amber-300">
                   $ cat about.md

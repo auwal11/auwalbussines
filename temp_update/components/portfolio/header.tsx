@@ -23,7 +23,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 backdrop-blur-xl bg-[#0F172A]/70 border-b transition-colors ${
+      className={`fixed inset-x-0 top-0 z-50 backdrop-blur-xl bg-[#09080E]/70 border-b transition-colors ${
         scrolled ? "border-zinc-800/80" : "border-zinc-800/30"
       }`}
     >
@@ -79,7 +79,7 @@ export function Header() {
       {open ? (
         <div
           id="mobile-nav"
-          className="border-t border-zinc-800/60 bg-[#0F172A]/90 backdrop-blur-xl md:hidden"
+          className="border-t border-zinc-800/60 bg-[#09080E]/90 backdrop-blur-xl md:hidden"
         >
           <ul className="flex flex-col gap-1 px-4 py-3 font-mono text-sm">
             {NAV_LINKS.map((link, i) => (

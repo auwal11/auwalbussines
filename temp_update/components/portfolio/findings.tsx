@@ -60,7 +60,7 @@ export function Findings() {
               Active across major bug bounty platforms and audit competitions. Specific findings,
               clients and proofs-of-concept are shared privately under coordinated disclosure.
             </p>
-            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-[#1E293B]/60 px-3 py-1.5 font-mono text-[11px] text-[#94A3B8]">
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-[#0F0E1A]/60 px-3 py-1.5 font-mono text-[11px] text-[#94A3B8]">
               <Lock className="h-3 w-3 text-amber-300" />
               Details disclosed under NDA / responsible disclosure
             </div>
@@ -109,7 +109,7 @@ export function Findings() {
                 {DOMAINS.map((d) => (
                   <li
                     key={d.label}
-                    className="group rounded-lg border border-zinc-800/80 bg-[#1E293B]/30 p-5 transition hover:border-amber-400/40 hover:bg-[#1E293B]/60"
+                    className="group rounded-lg border border-zinc-800/80 bg-[#0F0E1A]/30 p-5 transition hover:border-amber-400/40 hover:bg-[#0F0E1A]/60"
                   >
                     <p className="font-mono text-sm font-semibold text-[#F8FAFC] group-hover:text-amber-300 transition-colors">
                       {d.label}

@@ -49,7 +49,7 @@ export function Stats() {
               <Reveal as="li" key={label} delayMs={i * 100}>
                 <div className="group flex h-full flex-col gap-4 p-7">
                   <div className="flex items-center justify-between">
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-amber-400/20 bg-[#00E5FF]/[0.08] text-[#00E5FF] transition group-hover:border-amber-400/40">
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-amber-400/20 bg-[#FF6B00]/[0.08] text-[#FF6B00] transition group-hover:border-amber-400/40">
                       <Icon className="h-4 w-4" />
                     </span>
                     <span aria-hidden className="font-mono text-[10px] tracking-[0.25em] text-[#64748B]">

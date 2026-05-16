@@ -61,7 +61,7 @@ export function Skills() {
     <section id="skills" className="relative scroll-mt-24 border-t border-[rgba(0,229,255,0.08)]">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
         <div className="mb-12 max-w-2xl">
-          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-[#00E5FF]">
+          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-[#FF6B00]">
             / 03 — Stack
           </p>
           <h2 className="mt-3 font-mono text-3xl font-bold tracking-tight text-[#F8FAFC] sm:text-4xl">
@@ -90,8 +90,8 @@ export function Skills() {
                   const Icon = skill.icon
                   return (
                     <Reveal as="li" key={skill.name} delayMs={rowIdx * 60 + i * 50}>
-                      <div className="group flex h-full items-start gap-3 bg-[#0F172A]/40 p-5 transition-all duration-200 hover:bg-[#1E293B]/60 hover:border-l-2 hover:border-l-[#00E5FF]">
-                        <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[rgba(0,229,255,0.15)] bg-[#1E293B]/50 text-[#94A3B8] transition-all duration-200 group-hover:border-[#00E5FF]/40 group-hover:bg-[#00E5FF]/10 group-hover:text-[#00E5FF] group-hover:shadow-[0_0_12px_rgba(0,229,255,0.15)]">
+                      <div className="group flex h-full items-start gap-3 bg-[#09080E]/40 p-5 transition-all duration-200 hover:bg-[#0F0E1A]/60 hover:border-l-2 hover:border-l-[#FF6B00]">
+                        <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[rgba(0,229,255,0.15)] bg-[#0F0E1A]/50 text-[#94A3B8] transition-all duration-200 group-hover:border-[#FF6B00]/40 group-hover:bg-[#FF6B00]/10 group-hover:text-[#FF6B00] group-hover:shadow-[0_0_12px_rgba(0,229,255,0.15)]">
                           <Icon className="h-4 w-4" />
                         </span>
                         <div className="min-w-0">

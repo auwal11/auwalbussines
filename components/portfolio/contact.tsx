@@ -99,7 +99,7 @@ export function Contact() {
     <section id="contact" className="relative scroll-mt-24 border-t border-zinc-900">
       <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
         <Reveal className="max-w-2xl">
-          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-[#00E5FF]">
+          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-[#FF6B00]">
             / 04 — Contact
           </p>
           <h2 className="mt-3 font-mono text-3xl font-bold tracking-tight text-zinc-50 sm:text-4xl">
@@ -116,7 +116,7 @@ export function Contact() {
             <form
               onSubmit={onSubmit}
               noValidate
-              className="relative overflow-hidden rounded-2xl border border-[rgba(0,229,255,0.1)]/80 bg-[#1E293B]/40 p-6 sm:p-8"
+              className="relative overflow-hidden rounded-2xl border border-[rgba(0,229,255,0.1)]/80 bg-[#0F0E1A]/40 p-6 sm:p-8"
             >
               {/* Subtle top accent line */}
               <div
@@ -153,7 +153,7 @@ export function Contact() {
                     maxLength={120}
                     autoComplete="name"
                     disabled={submitting}
-                    className="mt-2 block w-full rounded-md border border-[rgba(0,229,255,0.15)] bg-[#1E293B]/70 px-3 py-2 text-sm text-[#F8FAFC] placeholder:text-[#64748B] focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
+                    className="mt-2 block w-full rounded-md border border-[rgba(0,229,255,0.15)] bg-[#0F0E1A]/70 px-3 py-2 text-sm text-[#F8FAFC] placeholder:text-[#64748B] focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
                     placeholder="Satoshi N."
                   />
                 </div>
@@ -172,7 +172,7 @@ export function Contact() {
                     maxLength={200}
                     autoComplete="email"
                     disabled={submitting}
-                    className="mt-2 block w-full rounded-md border border-[rgba(0,229,255,0.15)] bg-[#1E293B]/70 px-3 py-2 text-sm text-[#F8FAFC] placeholder:text-[#64748B] focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
+                    className="mt-2 block w-full rounded-md border border-[rgba(0,229,255,0.15)] bg-[#0F0E1A]/70 px-3 py-2 text-sm text-[#F8FAFC] placeholder:text-[#64748B] focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
                     placeholder="you@protocol.xyz"
                   />
                 </div>
@@ -191,10 +191,10 @@ export function Contact() {
                     name="subject"
                     defaultValue={SUBJECTS[0]}
                     disabled={submitting}
-                    className="block w-full appearance-none rounded-md border border-[rgba(0,229,255,0.15)] bg-[#1E293B]/70 px-3 py-2 pr-9 text-sm text-[#F8FAFC] focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
+                    className="block w-full appearance-none rounded-md border border-[rgba(0,229,255,0.15)] bg-[#0F0E1A]/70 px-3 py-2 pr-9 text-sm text-[#F8FAFC] focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
                   >
                     {SUBJECTS.map((s) => (
-                      <option key={s} value={s} className="bg-[#1E293B]">
+                      <option key={s} value={s} className="bg-[#0F0E1A]">
                         {s}
                       </option>
                     ))}
@@ -221,7 +221,7 @@ export function Contact() {
                   maxLength={5000}
                   rows={5}
                   disabled={submitting}
-                  className="mt-2 block w-full rounded-md border border-[rgba(0,229,255,0.15)] bg-[#1E293B]/70 px-3 py-2 text-sm text-[#F8FAFC] placeholder:text-[#64748B] focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
+                  className="mt-2 block w-full rounded-md border border-[rgba(0,229,255,0.15)] bg-[#0F0E1A]/70 px-3 py-2 text-sm text-[#F8FAFC] placeholder:text-[#64748B] focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
                   placeholder="Briefly describe your protocol or engagement scope..."
                 />
               </div>
@@ -231,7 +231,7 @@ export function Contact() {
                   role="status"
                   aria-live="polite"
                   className={`font-mono text-[11px] ${
-                    sent ? "text-[#00E5FF]" : "text-[#64748B]"
+                    sent ? "text-[#FF6B00]" : "text-[#64748B]"
                   }`}
                 >
                   {sent ? "// transmission received" : "// encrypted in transit"}
@@ -239,7 +239,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="inline-flex items-center gap-2 rounded-md bg-[#00E5FF] px-5 py-2.5 font-mono text-sm font-semibold text-zinc-950 transition hover:bg-[rgba(0,229,255,0.08)]-300 hover:shadow-[0_0_28px_-4px_rgba(251,191,36,0.6)] disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
+                  className="inline-flex items-center gap-2 rounded-md bg-[#FF6B00] px-5 py-2.5 font-mono text-sm font-semibold text-zinc-950 transition hover:bg-[rgba(0,229,255,0.08)]-300 hover:shadow-[0_0_28px_-4px_rgba(251,191,36,0.6)] disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
                 >
                   {submitting ? (
                     <>
@@ -265,16 +265,16 @@ export function Contact() {
                     href={href}
                     target={href.startsWith("http") ? "_blank" : undefined}
                     rel={href.startsWith("http") ? "noreferrer noopener" : undefined}
-                    className="group flex items-center gap-3 rounded-xl border border-[rgba(0,229,255,0.1)]/80 bg-[#1E293B]/40 p-4 transition hover:-translate-y-0.5 hover:border-amber-400/40 hover:bg-[#1E293B]/70"
+                    className="group flex items-center gap-3 rounded-xl border border-[rgba(0,229,255,0.1)]/80 bg-[#0F0E1A]/40 p-4 transition hover:-translate-y-0.5 hover:border-amber-400/40 hover:bg-[#0F0E1A]/70"
                   >
-                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-[rgba(0,229,255,0.1)] bg-[#0F172A] text-[#CBD5E1] transition group-hover:border-amber-400/40 group-hover:text-[#00E5FF]">
+                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-[rgba(0,229,255,0.1)] bg-[#09080E] text-[#CBD5E1] transition group-hover:border-amber-400/40 group-hover:text-[#FF6B00]">
                       <Icon className="h-4 w-4" />
                     </span>
                     <div className="min-w-0 flex-1">
                       <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#64748B]">
                         {label}
                       </p>
-                      <p className="truncate text-sm text-[#CBD5E1] group-hover:text-[#00E5FF]">
+                      <p className="truncate text-sm text-[#CBD5E1] group-hover:text-[#FF6B00]">
                         {handle}
                       </p>
                     </div>
