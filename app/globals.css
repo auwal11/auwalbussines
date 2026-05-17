@@ -240,7 +240,7 @@
 
 /* ═══════════════════════════════════════════════════════════
    ANIMATION UTILITIES
-   ═══════════════════════════════════════════════════════════ */
+   ════════════════════════════════════════════════════════���══ */
 
 .animate-blink { animation: blink 1.05s step-end infinite; }
 .animate-pulse-ring { animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
@@ -462,13 +462,13 @@
    ═══════════════════════════════════════════════════════════ */
 
 .btn-primary {
-  background: linear-gradient(135deg, #FF6B00 0%, #FF8533 100%);
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #00d4aa 0%, #7c3aed 100%);
+  color: #0a0f1e;
   font-weight: 700;
   border-radius: var(--radius);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 16px rgba(255, 107, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 107, 0, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 212, 170, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 212, 170, 0.3);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 0.875rem;
@@ -476,9 +476,9 @@
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 107, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 107, 0, 0.4);
-  background: linear-gradient(135deg, #FF7D1A 0%, #FFA366 100%);
+  box-shadow: 0 8px 24px rgba(0, 212, 170, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(0, 212, 170, 0.6);
+  background: linear-gradient(135deg, #00e5c0 0%, #9d4efd 100%);
 }
 
 .btn-ghost {

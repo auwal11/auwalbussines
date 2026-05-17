@@ -1,7 +1,5 @@
 "use client"
 
-import { Reveal } from "./reveal"
-
 interface SkillRow {
   label: string
   items: Skill[]
@@ -74,14 +72,16 @@ export function Skills() {
               {/* Skills */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                 {row.items.map((skill, i) => (
-                  <Reveal as="div" key={skill.name} delayMs={rowIdx * 60 + i * 50}>
-                    <div className="group bg-[rgba(15,25,50,0.85)] border border-[rgba(124,58,237,0.3)] rounded-lg p-4 hover:border-[rgba(0,212,170,0.5)] transition-all duration-300 cursor-pointer">
-                      <h3 className="text-sm font-semibold text-[#f0f4ff] mb-1 group-hover:text-[#00d4aa] transition-colors">
-                        {skill.name}
-                      </h3>
-                      <p className="text-xs text-[#8b9bc8]">{skill.desc}</p>
-                    </div>
-                  </Reveal>
+                  <div
+                    key={skill.name}
+                    className="group bg-[rgba(15,25,50,0.85)] border border-[rgba(124,58,237,0.3)] rounded-lg p-4 hover:border-[rgba(0,212,170,0.5)] transition-all duration-300 cursor-pointer animate-fade-up"
+                    style={{ animationDelay: `${rowIdx * 60 + i * 50}ms` }}
+                  >
+                    <h3 className="text-sm font-semibold text-[#f0f4ff] mb-1 group-hover:text-[#00d4aa] transition-colors">
+                      {skill.name}
+                    </h3>
+                    <p className="text-xs text-[#8b9bc8]">{skill.desc}</p>
+                  </div>
                 ))}
               </div>
             </div>
