@@ -8,50 +8,50 @@
    ═══════════════════════════════════════════════════════════ */
 
 :root {
-  /* COREDAO WEB3 SECURITY RESEARCHER DESIGN SYSTEM */
+  /* Claude-Inspired Design System */
   
-  /* Backgrounds - Deep Navy (CoreDAO-style) */
-  --background: #09080E;
-  --surface: #0F0E1A;
-  --surface-alt: #0C0B14;
-  --surface-hover: #14121F;
-  --card: #0F0E1A;
+  /* Backgrounds - Very Dark */
+  --background: #0a0a0a;
+  --surface: #1a1a1a;
+  --surface-alt: #0f0f0f;
+  --surface-hover: #252525;
+  --card: #1a1a1a;
   
-  /* Primary Accent - CoreDAO Orange */
-  --primary: #FF6B00;
-  --primary-dim: rgba(255, 107, 0, 0.12);
-  --primary-hover: #FF7D1A;
-  --primary-glow: rgba(255, 107, 0, 0.4);
+  /* Primary Accent - Claude Orange */
+  --primary: #D97706;
+  --primary-dim: rgba(217, 119, 6, 0.12);
+  --primary-hover: #F59E0B;
+  --primary-glow: rgba(217, 119, 6, 0.3);
   
-  /* Secondary Accent - Teal (Web3 trust) */
-  --secondary: #00D4AA;
-  --secondary-dim: rgba(0, 212, 170, 0.12);
-  --secondary-glow: rgba(0, 212, 170, 0.25);
+  /* Secondary Accent - Orange Lighter */
+  --secondary: #F59E0B;
+  --secondary-dim: rgba(245, 158, 11, 0.12);
+  --secondary-glow: rgba(217, 119, 6, 0.2);
   
   /* Accent Colors */
-  --accent-orange: #FF6B00;
-  --accent-orange-light: #FF8533;
-  --accent-teal: #00D4AA;
+  --accent-orange: #D97706;
+  --accent-orange-light: #F59E0B;
+  --accent-coral: #EA8B56;
   --accent-blue: #3B82F6;
-  --accent-purple: #9D4EDD;
+  --accent-gray: #6B7280;
   
   /* Semantic Colors */
-  --warning: #FFA500;
-  --danger: #FF4444;
+  --warning: #F59E0B;
+  --danger: #EF4444;
   --success: #10B981;
-  --info: #00D4AA;
+  --info: #3B82F6;
   
   /* Text Colors */
   --foreground: #FFFFFF;
-  --foreground-secondary: #D1D5DB;
+  --foreground-secondary: #E5E7EB;
   --muted: #9CA3AF;
   --muted-foreground: #6B7280;
   
   /* Borders & Dividers */
-  --border: rgba(255, 107, 0, 0.08);
-  --border-hover: rgba(255, 107, 0, 0.2);
-  --border-strong: rgba(255, 107, 0, 0.15);
-  --ring: rgba(255, 107, 0, 0.3);
+  --border: rgba(217, 119, 6, 0.1);
+  --border-hover: rgba(217, 119, 6, 0.3);
+  --border-strong: rgba(217, 119, 6, 0.2);
+  --ring: rgba(217, 119, 6, 0.3);
   
   /* Radius */
   --radius: 0.75rem;
@@ -61,11 +61,11 @@
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.32);
   --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.48);
   
-  /* Glows - CoreDAO Orange */
-  --glow-sm: 0 0 16px rgba(255, 107, 0, 0.2);
-  --glow-md: 0 0 24px rgba(255, 107, 0, 0.25);
-  --glow-lg: 0 0 40px rgba(255, 107, 0, 0.4);
-  --glow-teal: 0 0 24px rgba(0, 212, 170, 0.2);
+  /* Glows - Orange */
+  --glow-sm: 0 0 16px rgba(217, 119, 6, 0.2);
+  --glow-md: 0 0 24px rgba(217, 119, 6, 0.25);
+  --glow-lg: 0 0 40px rgba(217, 119, 6, 0.3);
+  --glow-secondary: 0 0 24px rgba(245, 158, 11, 0.2);
 }
 
 @theme inline {
@@ -240,7 +240,7 @@
 
 /* ═══════════════════════════════════════════════════════════
    ANIMATION UTILITIES
-   ════════════════════════════════════════════════════════���══ */
+   ════════════════════════════════════════════════════════�����══ */
 
 .animate-blink { animation: blink 1.05s step-end infinite; }
 .animate-pulse-ring { animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
@@ -462,13 +462,13 @@
    ═══════════════════════════════════════════════════════════ */
 
 .btn-primary {
-  background: linear-gradient(135deg, #00d4aa 0%, #7c3aed 100%);
-  color: #0a0f1e;
+  background: linear-gradient(135deg, #D97706 0%, #F59E0B 100%);
+  color: #0a0a0a;
   font-weight: 700;
   border-radius: var(--radius);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 16px rgba(0, 212, 170, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(0, 212, 170, 0.3);
+  box-shadow: 0 4px 16px rgba(217, 119, 6, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(217, 119, 6, 0.3);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 0.875rem;
@@ -476,9 +476,9 @@
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 212, 170, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  border-color: rgba(0, 212, 170, 0.6);
-  background: linear-gradient(135deg, #00e5c0 0%, #9d4efd 100%);
+  box-shadow: 0 8px 24px rgba(217, 119, 6, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(217, 119, 6, 0.6);
+  background: linear-gradient(135deg, #F59E0B 0%, #FCD34D 100%);
 }
 
 .btn-ghost {
@@ -491,7 +491,7 @@
 }
 
 .btn-ghost:hover {
-  background: rgba(255, 107, 0, 0.08);
+  background: rgba(217, 119, 6, 0.08);
   border-color: var(--primary);
   box-shadow: var(--glow-sm);
   transform: translateY(-1px);
