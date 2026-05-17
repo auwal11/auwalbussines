@@ -1,12 +1,10 @@
 import { Header } from "@/components/business/header"
 import { Hero } from "@/components/business/hero"
 import { Stats } from "@/components/business/stats"
-import { Services } from "@/components/business/services"
-import { Portfolio } from "@/components/business/portfolio"
-import { SecurityResearch } from "@/components/business/security-research"
+import { Findings } from "@/components/business/findings"
+import { Skills } from "@/components/business/skills"
 import { Contact } from "@/components/business/contact"
 import { Footer } from "@/components/business/footer"
-import { AIChat } from "@/components/business/ai-chat"
 
 export default function Page() {
   return (
@@ -15,13 +13,11 @@ export default function Page() {
       <main>
         <Hero />
         <Stats />
-        <Services />
-        <Portfolio />
-        <SecurityResearch />
+        <Findings />
+        <Skills />
         <Contact />
       </main>
       <Footer />
-      <AIChat />
     </div>
   )
 }

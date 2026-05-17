@@ -1,81 +1,41 @@
 "use client"
 
 import { useState } from "react"
-import { Send, CheckCircle, AlertCircle, Loader2, Mail, Phone, MapPin } from "lucide-react"
+import { Send, CheckCircle, Mail, Github, ExternalLink } from "lucide-react"
 import { toast } from "sonner"
 
-const businessTypes = [
-  "E-Commerce / Online Store",
-  "Professional Services",
-  "Restaurant / Food Business",
-  "Healthcare / Medical",
-  "Education / Training",
-  "Real Estate",
-  "Technology / SaaS",
-  "Other",
-]
-
-const projectNeeds = [
-  "Business Website",
-  "Mobile App",
-  "Admin Dashboard",
-  "AI Integration",
-  "E-Commerce Platform",
-  "Custom Solution",
-]
-
-const budgetRanges = [
-  "Under $1,000",
-  "$1,000 - $5,000",
-  "$5,000 - $15,000",
-  "$15,000 - $50,000",
-  "$50,000+",
-  "Not sure yet",
+const inquiryTypes = [
+  "Bug Bounty Collaboration",
+  "Audit Engagement",
+  "General Inquiry",
 ]
 
 export function Contact() {
-  const [step, setStep] = useState(1)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "",
-    businessName: "",
-    businessType: "",
-    description: "",
-    needs: [] as string[],
-    budget: "",
-    timeline: "",
+    subject: "General Inquiry",
+    message: "",
   })
 
-  const handleNeedToggle = (need: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      needs: prev.needs.includes(need)
-        ? prev.needs.filter((n) => n !== need)
-        : [...prev.needs, need],
-    }))
-  }
-
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
     setIsSubmitting(true)
 
     try {
-      const res = await fetch("/api/client-request", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       })
 
-      const data = await res.json()
-
-      if (!res.ok) {
-        throw new Error(data.error || "Failed to submit")
-      }
+      if (!res.ok) throw new Error("Failed to send message")
 
       setIsSuccess(true)
-      toast.success("Request submitted! We'll be in touch soon.")
+      toast.success("Message sent! I'll get back to you soon.")
+      setFormData({ name: "", email: "", subject: "General Inquiry", message: "" })
     } catch (err) {
       toast.error(err instanceof Error ? err.message : "Something went wrong")
     } finally {
@@ -83,33 +43,20 @@ export function Contact() {
     }
   }
 
-  const canProceedStep1 = formData.name && formData.email
-  const canProceedStep2 = formData.businessName && formData.businessType
-  const canSubmit = formData.needs.length > 0
+  const canSubmit = formData.name && formData.email && formData.message
 
   if (isSuccess) {
     return (
-      <section id="contact" className="relative py-24 sm:py-32">
-        <div className="mx-auto max-w-2xl px-4 sm:px-6 text-center">
-          <div className="glass-card p-12 rounded-3xl">
+      <section id="contact" className="relative py-20 sm:py-24 overflow-hidden">
+        <div className="mx-auto max-w-2xl px-4 sm:px-6">
+          <div className="glass-card p-12 rounded-2xl text-center animate-fade-up">
             <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#00d4aa]/10 flex items-center justify-center">
               <CheckCircle className="h-10 w-10 text-[#00d4aa]" />
             </div>
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#f0f4ff] mb-4">
-              Request Submitted!
+              Message Sent!
             </h2>
-            <p className="text-[#8b9bc8] mb-8">
-              Thank you for your interest. We&apos;ll review your project details and get back to you within 24 hours.
-            </p>
-            <a
-              href="https://wa.me/2348012345678"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary inline-flex items-center gap-2 px-6 py-3"
-            >
-              <Phone className="h-5 w-5" />
-              Chat on WhatsApp
-            </a>
+            <p className="text-[#8b9bc8]">Thank you for reaching out. I&apos;ll get back to you soon.</p>
           </div>
         </div>
       </section>
@@ -117,300 +64,148 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="relative py-24 sm:py-32 overflow-hidden">
-      {/* Background */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-[#00d4aa]/[0.04] blur-[100px]"
-      />
+    <section id="contact" className="relative py-20 sm:py-24 overflow-hidden">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6">
+        {/* Section Header */}
+        <div className="text-center mb-16 animate-fade-up">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f0f4ff] mb-4">
+            Let&apos;s Connect
+          </h2>
+          <p className="text-[#8b9bc8] max-w-2xl mx-auto">
+            Open to security collaborations, audit engagements, and bug bounty partnerships
+          </p>
+        </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left column - Info */}
-          <div>
-            <div className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-[#00d4aa]/20 bg-[#00d4aa]/5 px-4 py-1.5 text-xs font-mono text-[#00d4aa] mb-6">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#00d4aa]" />
-              GET STARTED
-            </div>
-            <h2 className="animate-fade-up delay-100 font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f0f4ff] mb-6">
-              Start Your Project
-            </h2>
-            <p className="animate-fade-up delay-200 text-[#8b9bc8] text-lg mb-8 leading-relaxed">
-              Tell us about your business and project needs. Our AI will generate a customized proposal, and we&apos;ll reach out to discuss the details.
-            </p>
-
-            {/* Contact info */}
-            <div className="animate-fade-up delay-300 space-y-4">
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Contact Info & Social Links */}
+          <div className="animate-fade-up delay-100">
+            <div className="space-y-6">
+              {/* Email */}
               <a
-                href="mailto:awntechdigitalservices@gmail.com"
-                className="flex items-center gap-4 p-4 rounded-xl bg-[#0a1628]/50 border border-[#ffffff08] hover:border-[#00d4aa]/30 transition-colors group"
+                href="mailto:alhajiauwalalhaji@gmail.com"
+                className="group flex items-center gap-4 p-4 rounded-xl bg-[rgba(15,25,50,0.85)] border border-[rgba(0,212,170,0.2)] hover:border-[rgba(0,212,170,0.4)] transition-all"
               >
                 <div className="w-12 h-12 rounded-xl bg-[#00d4aa]/10 flex items-center justify-center">
                   <Mail className="h-5 w-5 text-[#00d4aa]" />
                 </div>
-                <div>
+                <div className="flex-1">
                   <div className="text-xs font-mono text-[#8b9bc8] uppercase">Email</div>
-                  <div className="text-[#f0f4ff] group-hover:text-[#00d4aa] transition-colors">
-                    awntechdigitalservices@gmail.com
+                  <div className="text-[#f0f4ff] group-hover:text-[#00d4aa] transition-colors truncate">
+                    alhajiauwalalhaji@gmail.com
                   </div>
                 </div>
+                <ExternalLink className="h-4 w-4 text-[#8b9bc8]" />
               </a>
-              <a
-                href="https://wa.me/2348012345678"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 rounded-xl bg-[#0a1628]/50 border border-[#ffffff08] hover:border-[#00d4aa]/30 transition-colors group"
+
+              {/* Social Links */}
+              <div className="space-y-3 pt-4">
+                <p className="text-xs font-mono text-[#8b9bc8] uppercase tracking-wider">Social Links</p>
+                <a
+                  href="https://github.com/auwaldeve"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 p-3 rounded-lg bg-[#7c3aed]/10 border border-[#7c3aed]/20 hover:border-[#7c3aed]/40 transition-all"
+                >
+                  <Github className="h-4 w-4 text-[#7c3aed]" />
+                  <span className="text-sm text-[#f0f4ff] group-hover:text-[#7c3aed] transition-colors">
+                    github.com/auwaldeve
+                  </span>
+                </a>
+                <a
+                  href="https://hackerone.com/auwaldeve"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 p-3 rounded-lg bg-[#7c3aed]/10 border border-[#7c3aed]/20 hover:border-[#7c3aed]/40 transition-all"
+                >
+                  <ExternalLink className="h-4 w-4 text-[#7c3aed]" />
+                  <span className="text-sm text-[#f0f4ff] group-hover:text-[#7c3aed] transition-colors">
+                    HackerOne: @auwaldeve
+                  </span>
+                </a>
+                <a
+                  href="https://hackenproof.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 p-3 rounded-lg bg-[#7c3aed]/10 border border-[#7c3aed]/20 hover:border-[#7c3aed]/40 transition-all"
+                >
+                  <ExternalLink className="h-4 w-4 text-[#7c3aed]" />
+                  <span className="text-sm text-[#f0f4ff] group-hover:text-[#7c3aed] transition-colors">
+                    HackenProof
+                  </span>
+                </a>
+                <a
+                  href="https://cantina.xyz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 p-3 rounded-lg bg-[#7c3aed]/10 border border-[#7c3aed]/20 hover:border-[#7c3aed]/40 transition-all"
+                >
+                  <ExternalLink className="h-4 w-4 text-[#7c3aed]" />
+                  <span className="text-sm text-[#f0f4ff] group-hover:text-[#7c3aed] transition-colors">
+                    Cantina: Auwalbussines
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <form onSubmit={handleSubmit} className="animate-fade-up delay-200 space-y-6">
+            <div>
+              <label className="block text-sm font-mono text-[#8b9bc8] mb-2">Name *</label>
+              <input
+                type="text"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className="input-neural w-full px-4 py-3 bg-[rgba(15,25,50,0.85)] border border-[rgba(0,212,170,0.2)] rounded-lg text-[#f0f4ff] focus:border-[#00d4aa]/50 focus:outline-none transition-colors"
+                placeholder="Your name"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-mono text-[#8b9bc8] mb-2">Email *</label>
+              <input
+                type="email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="input-neural w-full px-4 py-3 bg-[rgba(15,25,50,0.85)] border border-[rgba(0,212,170,0.2)] rounded-lg text-[#f0f4ff] focus:border-[#00d4aa]/50 focus:outline-none transition-colors"
+                placeholder="you@example.com"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-mono text-[#8b9bc8] mb-2">Subject</label>
+              <select
+                value={formData.subject}
+                onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                className="input-neural w-full px-4 py-3 bg-[rgba(15,25,50,0.85)] border border-[rgba(0,212,170,0.2)] rounded-lg text-[#f0f4ff] focus:border-[#00d4aa]/50 focus:outline-none transition-colors"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#00d4aa]/10 flex items-center justify-center">
-                  <Phone className="h-5 w-5 text-[#00d4aa]" />
-                </div>
-                <div>
-                  <div className="text-xs font-mono text-[#8b9bc8] uppercase">WhatsApp</div>
-                  <div className="text-[#f0f4ff] group-hover:text-[#00d4aa] transition-colors">
-                    +234 801 234 5678
-                  </div>
-                </div>
-              </a>
-              <div className="flex items-center gap-4 p-4 rounded-xl bg-[#0a1628]/50 border border-[#ffffff08]">
-                <div className="w-12 h-12 rounded-xl bg-[#7c3aed]/10 flex items-center justify-center">
-                  <MapPin className="h-5 w-5 text-[#7c3aed]" />
-                </div>
-                <div>
-                  <div className="text-xs font-mono text-[#8b9bc8] uppercase">Location</div>
-                  <div className="text-[#f0f4ff]">Nigeria (Remote Worldwide)</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right column - Form */}
-          <div className="animate-fade-up delay-400">
-            <div className="glass-card rounded-3xl p-6 sm:p-8">
-              {/* Progress indicator */}
-              <div className="flex items-center gap-2 mb-8">
-                {[1, 2, 3].map((s) => (
-                  <div key={s} className="flex-1 flex items-center gap-2">
-                    <div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-mono transition-colors ${
-                        step >= s
-                          ? "bg-[#00d4aa] text-[#0a0f1e]"
-                          : "bg-[#ffffff08] text-[#8b9bc8]"
-                      }`}
-                    >
-                      {s}
-                    </div>
-                    {s < 3 && (
-                      <div
-                        className={`flex-1 h-0.5 transition-colors ${
-                          step > s ? "bg-[#00d4aa]" : "bg-[#ffffff08]"
-                        }`}
-                      />
-                    )}
-                  </div>
+                {inquiryTypes.map((type) => (
+                  <option key={type} value={type}>
+                    {type}
+                  </option>
                 ))}
-              </div>
-
-              {/* Step 1: About You */}
-              {step === 1 && (
-                <div className="space-y-6">
-                  <h3 className="font-display text-xl font-semibold text-[#f0f4ff]">
-                    About You
-                  </h3>
-                  <div>
-                    <label className="block text-sm font-mono text-[#8b9bc8] mb-2">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
-                      className="input-neural w-full px-4 py-3"
-                      placeholder="Your name"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-mono text-[#8b9bc8] mb-2">
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
-                      className="input-neural w-full px-4 py-3"
-                      placeholder="you@example.com"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-mono text-[#8b9bc8] mb-2">
-                      Phone / WhatsApp
-                    </label>
-                    <input
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => setFormData((p) => ({ ...p, phone: e.target.value }))}
-                      className="input-neural w-full px-4 py-3"
-                      placeholder="+234 ..."
-                    />
-                  </div>
-                  <button
-                    onClick={() => setStep(2)}
-                    disabled={!canProceedStep1}
-                    className="btn-primary w-full py-3 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    Continue
-                  </button>
-                </div>
-              )}
-
-              {/* Step 2: About Your Business */}
-              {step === 2 && (
-                <div className="space-y-6">
-                  <h3 className="font-display text-xl font-semibold text-[#f0f4ff]">
-                    About Your Business
-                  </h3>
-                  <div>
-                    <label className="block text-sm font-mono text-[#8b9bc8] mb-2">
-                      Business Name *
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.businessName}
-                      onChange={(e) => setFormData((p) => ({ ...p, businessName: e.target.value }))}
-                      className="input-neural w-full px-4 py-3"
-                      placeholder="Your business name"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-mono text-[#8b9bc8] mb-2">
-                      Business Type *
-                    </label>
-                    <select
-                      value={formData.businessType}
-                      onChange={(e) => setFormData((p) => ({ ...p, businessType: e.target.value }))}
-                      className="input-neural w-full px-4 py-3"
-                    >
-                      <option value="">Select type...</option>
-                      {businessTypes.map((t) => (
-                        <option key={t} value={t}>
-                          {t}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-mono text-[#8b9bc8] mb-2">
-                      Tell us about your business
-                    </label>
-                    <textarea
-                      value={formData.description}
-                      onChange={(e) => setFormData((p) => ({ ...p, description: e.target.value }))}
-                      className="input-neural w-full px-4 py-3 min-h-[100px] resize-none"
-                      placeholder="What does your business do? Who are your customers?"
-                    />
-                  </div>
-                  <div className="flex gap-3">
-                    <button
-                      onClick={() => setStep(1)}
-                      className="btn-ghost flex-1 py-3"
-                    >
-                      Back
-                    </button>
-                    <button
-                      onClick={() => setStep(3)}
-                      disabled={!canProceedStep2}
-                      className="btn-primary flex-1 py-3 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      Continue
-                    </button>
-                  </div>
-                </div>
-              )}
-
-              {/* Step 3: Project Details */}
-              {step === 3 && (
-                <div className="space-y-6">
-                  <h3 className="font-display text-xl font-semibold text-[#f0f4ff]">
-                    Project Details
-                  </h3>
-                  <div>
-                    <label className="block text-sm font-mono text-[#8b9bc8] mb-3">
-                      What do you need? *
-                    </label>
-                    <div className="grid grid-cols-2 gap-2">
-                      {projectNeeds.map((need) => (
-                        <button
-                          key={need}
-                          type="button"
-                          onClick={() => handleNeedToggle(need)}
-                          className={`px-3 py-2 rounded-lg text-sm text-left transition-all ${
-                            formData.needs.includes(need)
-                              ? "bg-[#00d4aa] text-[#0a0f1e] font-medium"
-                              : "bg-[#ffffff05] text-[#8b9bc8] border border-[#ffffff08] hover:border-[#00d4aa]/30"
-                          }`}
-                        >
-                          {need}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-mono text-[#8b9bc8] mb-2">
-                      Budget Range
-                    </label>
-                    <select
-                      value={formData.budget}
-                      onChange={(e) => setFormData((p) => ({ ...p, budget: e.target.value }))}
-                      className="input-neural w-full px-4 py-3"
-                    >
-                      <option value="">Select budget...</option>
-                      {budgetRanges.map((b) => (
-                        <option key={b} value={b}>
-                          {b}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-mono text-[#8b9bc8] mb-2">
-                      Timeline
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.timeline}
-                      onChange={(e) => setFormData((p) => ({ ...p, timeline: e.target.value }))}
-                      className="input-neural w-full px-4 py-3"
-                      placeholder="e.g., 2 weeks, 1 month, ASAP"
-                    />
-                  </div>
-                  <div className="flex gap-3">
-                    <button
-                      onClick={() => setStep(2)}
-                      className="btn-ghost flex-1 py-3"
-                    >
-                      Back
-                    </button>
-                    <button
-                      onClick={handleSubmit}
-                      disabled={!canSubmit || isSubmitting}
-                      className="btn-primary flex-1 py-3 disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="h-5 w-5 animate-spin" />
-                          Submitting...
-                        </>
-                      ) : (
-                        <>
-                          <Send className="h-5 w-5" />
-                          Submit Request
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </div>
-              )}
+              </select>
             </div>
-          </div>
+
+            <div>
+              <label className="block text-sm font-mono text-[#8b9bc8] mb-2">Message *</label>
+              <textarea
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                className="input-neural w-full px-4 py-3 bg-[rgba(15,25,50,0.85)] border border-[rgba(0,212,170,0.2)] rounded-lg text-[#f0f4ff] focus:border-[#00d4aa]/50 focus:outline-none transition-colors min-h-[120px] resize-none"
+                placeholder="Tell me about your project or inquiry..."
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={!canSubmit || isSubmitting}
+              className="btn-primary w-full py-3 font-semibold flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <Send className="h-4 w-4" />
+              {isSubmitting ? "Sending..." : "Send Message"}
+            </button>
+          </form>
         </div>
       </div>
     </section>
