@@ -1,20 +1,16 @@
 import Link from "next/link"
-import { Github, Linkedin, Mail, MessageCircle } from "lucide-react"
+import { Github, Mail } from "lucide-react"
 
 const socialLinks = [
-  { icon: MessageCircle, href: "https://wa.me/2348012345678", label: "WhatsApp" },
-  { icon: Github, href: "https://github.com/auwntech-audit", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com/in/auwal", label: "LinkedIn" },
-  { icon: Mail, href: "mailto:awntechdigitalservices@gmail.com", label: "Email" },
+  { icon: Github, href: "https://github.com/auwaldeve", label: "GitHub" },
+  { icon: Mail, href: "mailto:alhajiauwalalhaji@gmail.com", label: "Email" },
 ]
 
 const footerLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Security Research", href: "#security" },
+  { label: "About", href: "#about" },
+  { label: "Findings", href: "#findings" },
+  { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Terms of Service", href: "/terms-of-service" },
 ]
 
 export function Footer() {
@@ -28,12 +24,12 @@ export function Footer() {
               <div className="w-8 h-8 rounded-lg bg-[#00d4aa]/10 border border-[#00d4aa]/30 flex items-center justify-center">
                 <span className="font-display font-bold text-[#00d4aa] text-sm">A</span>
               </div>
-              <span className="font-display font-semibold text-[#f0f4ff] text-lg">
-                Auwal Business
+              <span className="font-display font-semibold text-[#f0f4ff] font-mono text-lg">
+                AUWAL.DEV
               </span>
             </Link>
             <p className="text-[#8b9bc8] text-sm leading-relaxed mb-6">
-              Building smart websites and AI-powered applications that help businesses grow and compete in the modern digital economy.
+              Web3 Security Researcher. Hunting vulnerabilities in DeFi protocols and smart contracts.
             </p>
             {/* Social links */}
             <div className="flex items-center gap-3">
@@ -52,13 +48,13 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Quick links */}
+          {/* Navigation */}
           <div>
             <h4 className="font-mono text-xs uppercase tracking-wider text-[#8b9bc8] mb-4">
-              Quick Links
+              Navigation
             </h4>
             <ul className="space-y-3">
-              {footerLinks.slice(0, 4).map((link) => (
+              {footerLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
@@ -71,33 +67,30 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Legal */}
+          {/* Contact Info */}
           <div>
             <h4 className="font-mono text-xs uppercase tracking-wider text-[#8b9bc8] mb-4">
-              Legal
+              Get In Touch
             </h4>
-            <ul className="space-y-3">
-              {footerLinks.slice(4).map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-[#8b9bc8] hover:text-[#00d4aa] transition-colors text-sm"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <p className="text-[#8b9bc8] text-sm mb-3">
+              Email: alhajiauwalalhaji@gmail.com
+            </p>
+            <p className="text-[#8b9bc8] text-sm mb-3">
+              Location: Nigeria 🇳🇬
+            </p>
+            <p className="text-[#8b9bc8] text-sm">
+              Available for work
+            </p>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-[#ffffff08] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 pt-8 border-t border-[rgba(0,212,170,0.1)] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <p className="text-[#8b9bc8] text-sm">
-            &copy; {new Date().getFullYear()} Auwal Business. All rights reserved.
+            &copy; {new Date().getFullYear()} Auwal Bashar — Web3 Security Researcher
           </p>
-          <p className="text-[#6b7c99] text-xs font-mono">
-            Built with Next.js &middot; Powered by AI
+          <p className="text-[#8b9bc8] text-xs font-mono">
+            Built with Next.js &middot; Tailwind CSS
           </p>
         </div>
       </div>
