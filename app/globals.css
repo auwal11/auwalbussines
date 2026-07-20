@@ -8,64 +8,65 @@
    ═══════════════════════════════════════════════════════════ */
 
 :root {
-  /* Claude-Inspired Design System */
+  /* Premium Dark Design System - Security Researcher */
   
-  /* Backgrounds - Very Dark */
-  --background: #0a0a0a;
-  --surface: #1a1a1a;
-  --surface-alt: #0f0f0f;
-  --surface-hover: #252525;
-  --card: #1a1a1a;
+  /* Backgrounds - Premium Dark */
+  --background: #0a0e27;
+  --surface: #0f1425;
+  --surface-alt: #0c1120;
+  --surface-hover: #141d35;
+  --card: #0f1425;
   
-  /* Primary Accent - Claude Orange */
-  --primary: #D97706;
-  --primary-dim: rgba(217, 119, 6, 0.12);
-  --primary-hover: #F59E0B;
-  --primary-glow: rgba(217, 119, 6, 0.3);
+  /* Primary Accent - Emerald Green */
+  --primary: #00d9a3;
+  --primary-dim: rgba(0, 217, 163, 0.08);
+  --primary-hover: #00e6b0;
+  --primary-glow: rgba(0, 217, 163, 0.25);
   
-  /* Secondary Accent - Orange Lighter */
-  --secondary: #F59E0B;
-  --secondary-dim: rgba(245, 158, 11, 0.12);
-  --secondary-glow: rgba(217, 119, 6, 0.2);
+  /* Secondary Accent - Cyan */
+  --secondary: #00b4d8;
+  --secondary-dim: rgba(0, 180, 216, 0.08);
+  --secondary-glow: rgba(0, 180, 216, 0.2);
   
   /* Accent Colors */
-  --accent-orange: #D97706;
-  --accent-orange-light: #F59E0B;
-  --accent-coral: #EA8B56;
-  --accent-blue: #3B82F6;
-  --accent-gray: #6B7280;
+  --accent-emerald: #00d9a3;
+  --accent-cyan: #00b4d8;
+  --accent-purple: #7c3aed;
+  --accent-indigo: #6366f1;
+  --accent-blue: #0ea5e9;
   
   /* Semantic Colors */
-  --warning: #F59E0B;
-  --danger: #EF4444;
-  --success: #10B981;
-  --info: #3B82F6;
+  --critical: #ef4444;
+  --high: #f97316;
+  --medium: #eab308;
+  --low: #10b981;
+  --info: #0ea5e9;
   
   /* Text Colors */
-  --foreground: #FFFFFF;
-  --foreground-secondary: #E5E7EB;
-  --muted: #9CA3AF;
-  --muted-foreground: #6B7280;
+  --foreground: #f0f4ff;
+  --foreground-secondary: #d1d5db;
+  --muted: #9ca3af;
+  --muted-foreground: #6b7280;
   
   /* Borders & Dividers */
-  --border: rgba(217, 119, 6, 0.1);
-  --border-hover: rgba(217, 119, 6, 0.3);
-  --border-strong: rgba(217, 119, 6, 0.2);
-  --ring: rgba(217, 119, 6, 0.3);
+  --border: rgba(0, 217, 163, 0.1);
+  --border-hover: rgba(0, 217, 163, 0.2);
+  --border-strong: rgba(0, 217, 163, 0.3);
+  --ring: rgba(0, 217, 163, 0.4);
   
   /* Radius */
   --radius: 0.75rem;
   
-  /* Shadows - Refined */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.24);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.32);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.48);
+  /* Shadows - Deep with Emerald Tint */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
   
-  /* Glows - Orange */
-  --glow-sm: 0 0 16px rgba(217, 119, 6, 0.2);
-  --glow-md: 0 0 24px rgba(217, 119, 6, 0.25);
-  --glow-lg: 0 0 40px rgba(217, 119, 6, 0.3);
-  --glow-secondary: 0 0 24px rgba(245, 158, 11, 0.2);
+  /* Glows - Emerald & Cyan */
+  --glow-sm: 0 0 16px rgba(0, 217, 163, 0.15);
+  --glow-md: 0 0 24px rgba(0, 217, 163, 0.2);
+  --glow-lg: 0 0 40px rgba(0, 217, 163, 0.3);
+  --glow-cyan: 0 0 24px rgba(0, 180, 216, 0.2);
 }
 
 @theme inline {
@@ -132,18 +133,38 @@
 
 @keyframes pulse-ring {
   0%, 100% { 
-    box-shadow: 0 0 0 0 rgba(0, 255, 180, 0.4), 0 0 0 0 rgba(0, 255, 180, 0.2);
+    box-shadow: 0 0 0 0 rgba(0, 217, 163, 0.4), 0 0 0 0 rgba(0, 217, 163, 0.2);
     transform: scale(1);
   }
   50% { 
-    box-shadow: 0 0 0 8px rgba(0, 255, 180, 0), 0 0 0 16px rgba(0, 255, 180, 0);
+    box-shadow: 0 0 0 8px rgba(0, 217, 163, 0), 0 0 0 16px rgba(0, 217, 163, 0);
     transform: scale(1.02);
   }
 }
 
 @keyframes pulse-dot {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 255, 180, 0.6); }
-  50% { box-shadow: 0 0 0 8px rgba(0, 255, 180, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 217, 163, 0.6); }
+  50% { box-shadow: 0 0 0 8px rgba(0, 217, 163, 0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 217, 163, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(0, 217, 163, 0.6); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes grid-pan {
