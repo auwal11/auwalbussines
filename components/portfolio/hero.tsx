@@ -11,8 +11,8 @@ export function Hero() {
   useEffect(() => {
     if (!containerRef.current || !lettersRef.current) return
 
-    // Filter out null references
     const validLetters = lettersRef.current.filter((el) => el !== null)
+    const timeline = gsap.timeline()
     
     if (validLetters.length > 0) {
       // Initial scattered state
@@ -24,7 +24,7 @@ export function Hero() {
       })
 
       // Animate letters to center
-      gsap.to(validLetters, {
+      timeline.to(validLetters, {
         duration: 1.4,
         opacity: 1,
         x: 0,
@@ -36,13 +36,19 @@ export function Hero() {
     }
 
     // Spin logo continuously
+    const logoTimeline = gsap.timeline({ repeat: -1 })
     if (logoRef.current) {
-      gsap.to(logoRef.current, {
+      logoTimeline.to(logoRef.current, {
         rotation: 360,
         duration: 8,
-        repeat: -1,
         ease: 'none',
       })
+    }
+
+    // Cleanup function
+    return () => {
+      timeline.kill()
+      logoTimeline.kill()
     }
   }, [])
 
