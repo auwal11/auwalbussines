@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-
+import { useRef } from 'react'
+import { motion } from 'framer-motion'
 
 const reports = [
   {
@@ -34,59 +34,39 @@ export function AuditReports() {
   const titleRef = useRef<HTMLHeadingElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    if (!titleRef.current || !containerRef.current) return
-
-    gsap.from(titleRef.current, {
-      scrollTrigger: {
-        trigger: titleRef.current,
-        start: 'top 80%',
-      },
-      duration: 1,
-      opacity: 0,
-      y: 30,
-      ease: 'power3.out',
-    })
-
-    const cards = containerRef.current.querySelectorAll('.report-card')
-    gsap.from(cards, {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top 70%',
-      },
-      duration: 1,
-      opacity: 0,
-      y: 40,
-      stagger: 0.1,
-      ease: 'power3.out',
-    })
-  }, [])
-
   return (
     <section id="reports" className="relative py-32 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="mb-20">
+        <motion.div 
+          className="mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <span className="text-xs font-mono text-primary uppercase tracking-widest">
             Professional Work
           </span>
-          <h2
-            ref={titleRef}
-            className="text-5xl md:text-6xl font-display font-bold mt-4 mb-6"
-          >
+          <h2 className="text-5xl md:text-6xl font-display font-bold mt-4 mb-6">
             Audit Reports
           </h2>
           <p className="text-lg text-muted max-w-2xl">
             Comprehensive security audits for leading protocols and projects in the Web3 ecosystem.
           </p>
-        </div>
+        </motion.div>
 
         {/* Reports Grid */}
-        <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {reports.map((report) => (
-            <div
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {reports.map((report, idx) => (
+            <motion.div
               key={report.id}
-              className="report-card group relative overflow-hidden rounded-2xl border border-primary/10 bg-surface/40 backdrop-blur-xl p-8 hover:border-primary/30 transition-all duration-300 cursor-pointer"
+              className="group relative overflow-hidden rounded-2xl border border-primary/10 bg-surface/40 backdrop-blur-xl p-8 hover:border-primary/30 transition-all duration-300 cursor-pointer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -111,7 +91,7 @@ export function AuditReports() {
                   Download Report
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

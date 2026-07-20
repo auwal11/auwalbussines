@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-
+import { useRef } from 'react'
+import { motion } from 'framer-motion'
 
 const bounties = [
   { platform: 'HackerOne', total: '$250,000+', findings: '45+', status: 'Hall of Fame' },
@@ -13,48 +13,34 @@ export function BugBounties() {
   const titleRef = useRef<HTMLHeadingElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    if (!titleRef.current || !containerRef.current) return
-
-    gsap.from(titleRef.current, {
-      scrollTrigger: { trigger: titleRef.current, start: 'top 80%' },
-      duration: 1,
-      opacity: 0,
-      y: 30,
-      ease: 'power3.out',
-    })
-
-    const items = containerRef.current.querySelectorAll('.bounty-card')
-    gsap.from(items, {
-      scrollTrigger: { trigger: containerRef.current, start: 'top 70%' },
-      duration: 1,
-      opacity: 0,
-      y: 40,
-      stagger: 0.1,
-      ease: 'power3.out',
-    })
-  }, [])
-
   return (
     <section className="relative py-32 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-20">
+        <motion.div 
+          className="mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <span className="text-xs font-mono text-primary uppercase tracking-widest">
             Achievements
           </span>
-          <h2
-            ref={titleRef}
-            className="text-5xl md:text-6xl font-display font-bold mt-4 mb-6"
-          >
+          <h2 className="text-5xl md:text-6xl font-display font-bold mt-4 mb-6">
             Bug Bounty Success
           </h2>
-        </div>
+        </motion.div>
 
-        <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {bounties.map((bounty, i) => (
-            <div
+            <motion.div
               key={i}
-              className="bounty-card group relative overflow-hidden rounded-2xl border border-primary/10 bg-surface/40 backdrop-blur-xl p-8 hover:border-primary/30 transition-all duration-300"
+              className="group relative overflow-hidden rounded-2xl border border-primary/10 bg-surface/40 backdrop-blur-xl p-8 hover:border-primary/30 transition-all duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
 
@@ -76,7 +62,7 @@ export function BugBounties() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
