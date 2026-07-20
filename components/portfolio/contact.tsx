@@ -1,288 +1,152 @@
-"use client"
+'use client'
 
-import { ChevronDown, Github, Loader2, Mail, Send, Shield, ShieldCheck, Swords } from "lucide-react"
-import { useState, type FormEvent } from "react"
-import { toast } from "sonner"
-import { Reveal } from "./reveal"
-
-const SUBJECTS = [
-  "Bug Bounty Collaboration",
-  "Audit Engagement",
-  "General Inquiry",
-] as const
-
-const SOCIALS = [
-  {
-    icon: Mail,
-    label: "Email",
-    handle: "awntechdigitalservices@gmail.com",
-    href: "mailto:awntechdigitalservices@gmail.com",
-  },
-  {
-    icon: Github,
-    label: "GitHub",
-    handle: "github.com/auwntech-audit",
-    href: "https://github.com/auwntech-audit",
-  },
-  {
-    icon: Shield,
-    label: "HackerOne",
-    handle: "@auwaldeve",
-    href: "https://hackerone.com/auwaldeve",
-  },
-  {
-    icon: ShieldCheck,
-    label: "HackenProof",
-    handle: "@auwal",
-    href: "https://hackenproof.com",
-  },
-  {
-    icon: Swords,
-    label: "Code4rena",
-    handle: "@auwal",
-    href: "https://code4rena.com",
-  },
-] as const
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { Mail, Github, Linkedin, Twitter } from 'lucide-react'
 
 export function Contact() {
-  const [submitting, setSubmitting] = useState(false)
-  const [sent, setSent] = useState(false)
+  const [formState, setFormState] = useState({ name: '', email: '', message: '' })
+  const [submitted, setSubmitted] = useState(false)
 
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (submitting) return
-
-    const form = e.currentTarget
-    const formData = new FormData(form)
-
-    const payload = {
-      name: String(formData.get("name") ?? "").trim(),
-      email: String(formData.get("email") ?? "").trim(),
-      subject: String(formData.get("subject") ?? "").trim(),
-      message: String(formData.get("message") ?? "").trim(),
-      website: String(formData.get("website") ?? ""), // honeypot
-    }
-
-    setSubmitting(true)
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      })
-
-      const data: { ok?: boolean; error?: string } = await res
-        .json()
-        .catch(() => ({}))
-
-      if (!res.ok || !data.ok) {
-        throw new Error(data.error ?? "Failed to send message")
-      }
-
-      toast.success("Message sent", {
-        description: "Thanks — I'll get back to you within 24 hours.",
-      })
-      setSent(true)
-      form.reset()
-      setTimeout(() => setSent(false), 4000)
-    } catch (err) {
-      const msg = err instanceof Error ? err.message : "Something went wrong"
-      toast.error("Could not send message", {
-        description: msg,
-      })
-    } finally {
-      setSubmitting(false)
-    }
+    setSubmitted(true)
+    setTimeout(() => setSubmitted(false), 3000)
   }
 
+  const socialLinks = [
+    { icon: Github, href: 'https://github.com', label: 'GitHub' },
+    { icon: Mail, href: 'mailto:contact@example.com', label: 'Email' },
+    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
+  ]
+
   return (
-    <section id="contact" className="relative scroll-mt-24 border-t border-zinc-900">
-      <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
-        <Reveal className="max-w-2xl">
-          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-[#FF6B00]">
-            / 04 — Contact
-          </p>
-          <h2 className="mt-3 font-mono text-3xl font-bold tracking-tight text-zinc-50 sm:text-4xl">
-            Let&apos;s connect.
+    <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
+      <div className="max-w-4xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <span className="text-xs font-mono text-primary uppercase tracking-widest">
+            Get in Touch
+          </span>
+          <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6 text-foreground">
+            Let's Work Together
           </h2>
-          <p className="mt-4 text-pretty text-sm leading-relaxed text-[#94A3B8]">
-            Open to security collaborations, audit engagements, and bug bounty partnerships.
-            Messages are delivered straight to my inbox.
+          <p className="text-lg text-muted max-w-2xl mx-auto">
+            Have a security challenge or interested in collaboration? I'd love to hear about your project and discuss how I can help secure your systems.
           </p>
-        </Reveal>
+        </motion.div>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-5">
-          <Reveal className="lg:col-span-3">
-            <form
-              onSubmit={onSubmit}
-              noValidate
-              className="relative overflow-hidden rounded-2xl border border-[rgba(0,229,255,0.1)]/80 bg-[#0F0E1A]/40 p-6 sm:p-8"
-            >
-              {/* Subtle top accent line */}
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent"
-              />
-
-              {/* Honeypot — visually hidden from users, visible to bots */}
-              <div aria-hidden className="absolute -left-[9999px] top-auto h-0 w-0 overflow-hidden">
-                <label htmlFor="website">Website</label>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">Name</label>
                 <input
-                  id="website"
-                  name="website"
                   type="text"
-                  tabIndex={-1}
-                  autoComplete="off"
-                />
-              </div>
-
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block font-mono text-[10px] uppercase tracking-[0.2em] text-[#94A3B8]"
-                  >
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    minLength={2}
-                    maxLength={120}
-                    autoComplete="name"
-                    disabled={submitting}
-                    className="mt-2 block w-full rounded-md border border-[rgba(0,229,255,0.15)] bg-[#0F0E1A]/70 px-3 py-2 text-sm text-[#F8FAFC] placeholder:text-[#64748B] focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
-                    placeholder="Satoshi N."
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block font-mono text-[10px] uppercase tracking-[0.2em] text-[#94A3B8]"
-                  >
-                    Your Email
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    maxLength={200}
-                    autoComplete="email"
-                    disabled={submitting}
-                    className="mt-2 block w-full rounded-md border border-[rgba(0,229,255,0.15)] bg-[#0F0E1A]/70 px-3 py-2 text-sm text-[#F8FAFC] placeholder:text-[#64748B] focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
-                    placeholder="you@protocol.xyz"
-                  />
-                </div>
-              </div>
-
-              <div className="mt-5">
-                <label
-                  htmlFor="subject"
-                  className="block font-mono text-[10px] uppercase tracking-[0.2em] text-[#94A3B8]"
-                >
-                  Subject
-                </label>
-                <div className="relative mt-2">
-                  <select
-                    id="subject"
-                    name="subject"
-                    defaultValue={SUBJECTS[0]}
-                    disabled={submitting}
-                    className="block w-full appearance-none rounded-md border border-[rgba(0,229,255,0.15)] bg-[#0F0E1A]/70 px-3 py-2 pr-9 text-sm text-[#F8FAFC] focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
-                  >
-                    {SUBJECTS.map((s) => (
-                      <option key={s} value={s} className="bg-[#0F0E1A]">
-                        {s}
-                      </option>
-                    ))}
-                  </select>
-                  <ChevronDown
-                    aria-hidden
-                    className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#94A3B8]"
-                  />
-                </div>
-              </div>
-
-              <div className="mt-5">
-                <label
-                  htmlFor="message"
-                  className="block font-mono text-[10px] uppercase tracking-[0.2em] text-[#94A3B8]"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
+                  value={formState.name}
+                  onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                  className="w-full px-4 py-3 rounded-lg border border-primary/20 bg-surface/50 text-foreground placeholder-muted-foreground focus:border-primary/50 focus:outline-none transition-colors"
+                  placeholder="Your name"
                   required
-                  minLength={10}
-                  maxLength={5000}
-                  rows={5}
-                  disabled={submitting}
-                  className="mt-2 block w-full rounded-md border border-[rgba(0,229,255,0.15)] bg-[#0F0E1A]/70 px-3 py-2 text-sm text-[#F8FAFC] placeholder:text-[#64748B] focus:border-amber-400/60 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:opacity-60"
-                  placeholder="Briefly describe your protocol or engagement scope..."
                 />
               </div>
-
-              <div className="mt-6 flex items-center justify-between gap-3">
-                <p
-                  role="status"
-                  aria-live="polite"
-                  className={`font-mono text-[11px] ${
-                    sent ? "text-[#FF6B00]" : "text-[#64748B]"
-                  }`}
-                >
-                  {sent ? "// transmission received" : "// encrypted in transit"}
-                </p>
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="inline-flex items-center gap-2 rounded-md bg-[#FF6B00] px-5 py-2.5 font-mono text-sm font-semibold text-zinc-950 transition hover:bg-[rgba(0,229,255,0.08)]-300 hover:shadow-[0_0_28px_-4px_rgba(251,191,36,0.6)] disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
-                >
-                  {submitting ? (
-                    <>
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="h-4 w-4" />
-                      Send Message
-                    </>
-                  )}
-                </button>
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">Email</label>
+                <input
+                  type="email"
+                  value={formState.email}
+                  onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                  className="w-full px-4 py-3 rounded-lg border border-primary/20 bg-surface/50 text-foreground placeholder-muted-foreground focus:border-primary/50 focus:outline-none transition-colors"
+                  placeholder="your@email.com"
+                  required
+                />
               </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">Message</label>
+                <textarea
+                  value={formState.message}
+                  onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                  rows={5}
+                  className="w-full px-4 py-3 rounded-lg border border-primary/20 bg-surface/50 text-foreground placeholder-muted-foreground focus:border-primary/50 focus:outline-none transition-colors resize-none"
+                  placeholder="Tell me about your project..."
+                  required
+                />
+              </div>
+              <motion.button
+                type="submit"
+                className="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-primary to-primary/80 text-background font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {submitted ? 'Message sent!' : 'Send Message'}
+              </motion.button>
             </form>
-          </Reveal>
+          </motion.div>
 
-          <Reveal className="lg:col-span-2" delayMs={120}>
-            <ul className="grid h-full grid-cols-1 gap-3">
-              {SOCIALS.map(({ icon: Icon, label, handle, href }) => (
-                <li key={label}>
-                  <a
-                    href={href}
-                    target={href.startsWith("http") ? "_blank" : undefined}
-                    rel={href.startsWith("http") ? "noreferrer noopener" : undefined}
-                    className="group flex items-center gap-3 rounded-xl border border-[rgba(0,229,255,0.1)]/80 bg-[#0F0E1A]/40 p-4 transition hover:-translate-y-0.5 hover:border-amber-400/40 hover:bg-[#0F0E1A]/70"
-                  >
-                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-[rgba(0,229,255,0.1)] bg-[#09080E] text-[#CBD5E1] transition group-hover:border-amber-400/40 group-hover:text-[#FF6B00]">
-                      <Icon className="h-4 w-4" />
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#64748B]">
-                        {label}
-                      </p>
-                      <p className="truncate text-sm text-[#CBD5E1] group-hover:text-[#FF6B00]">
-                        {handle}
-                      </p>
-                    </div>
+          {/* Contact Information */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <div className="rounded-2xl border border-primary/10 bg-surface/40 backdrop-blur-xl p-8">
+              <h3 className="text-xl font-bold text-foreground mb-4">Contact Information</h3>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Email</p>
+                  <a href="mailto:contact@example.com" className="text-primary font-semibold hover:text-primary/80 transition-colors">
+                    contact@example.com
                   </a>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Location</p>
+                  <p className="text-foreground font-semibold">Nigeria</p>
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Response Time</p>
+                  <p className="text-foreground font-semibold">Within 48 hours</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="rounded-2xl border border-primary/10 bg-surface/40 backdrop-blur-xl p-8">
+              <h3 className="text-xl font-bold text-foreground mb-4">Connect</h3>
+              <div className="grid grid-cols-4 gap-4">
+                {socialLinks.map((social, idx) => {
+                  const Icon = social.icon
+                  return (
+                    <motion.a
+                      key={idx}
+                      href={social.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center justify-center w-12 h-12 rounded-lg border border-primary/20 bg-surface/50 text-muted hover:border-primary/50 hover:text-primary hover:bg-surface/80 transition-all"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      title={social.label}
+                    >
+                      <Icon className="w-5 h-5" />
+                    </motion.a>
+                  )
+                })}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

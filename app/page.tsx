@@ -2,16 +2,17 @@
 
 import { useEffect } from 'react'
 import Lenis from 'lenis'
-import { Navbar } from '@/components/security/navbar'
-import { Hero } from '@/components/security/hero'
-import { Vulnerabilities } from '@/components/security/vulnerabilities'
-import { Timeline } from '@/components/security/timeline'
-import { AuditReports } from '@/components/security/audit-reports'
-import { BugBounties } from '@/components/security/bug-bounties'
-import { Skills } from '@/components/security/skills'
-import { Research } from '@/components/security/research'
-import { Contact } from '@/components/security/contact'
-import { Footer } from '@/components/security/footer'
+import { Navbar } from '@/components/portfolio/navbar'
+import { Hero } from '@/components/portfolio/hero'
+import { Expertise } from '@/components/portfolio/expertise'
+import { CaseStudies } from '@/components/portfolio/case-studies'
+import { Timeline } from '@/components/portfolio/timeline'
+import { Methodology } from '@/components/portfolio/methodology'
+import { Skills } from '@/components/portfolio/skills'
+import { Publications } from '@/components/portfolio/publications'
+import { Services } from '@/components/portfolio/services'
+import { Contact } from '@/components/portfolio/contact'
+import { Footer } from '@/components/portfolio/footer'
 
 export default function Page() {
   useEffect(() => {
@@ -29,12 +30,13 @@ export default function Page() {
       <Navbar />
       <main>
         <Hero />
-        <Vulnerabilities />
+        <Expertise />
+        <CaseStudies />
         <Timeline />
-        <AuditReports />
-        <BugBounties />
+        <Methodology />
         <Skills />
-        <Research />
+        <Publications />
+        <Services />
         <Contact />
       </main>
       <Footer />
