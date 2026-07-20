@@ -1,41 +1,11 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { SplitText } from 'gsap/dist/SplitText'
-
-gsap.registerPlugin(SplitText)
+import { motion } from 'framer-motion'
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const titleRef = useRef<HTMLHeadingElement>(null)
-  const subtitleRef = useRef<HTMLParagraphElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
-
-  useEffect(() => {
-    // SplitText animation for title
-    if (titleRef.current) {
-      const split = new SplitText(titleRef.current, { type: 'chars' })
-      gsap.from(split.chars, {
-        duration: 1,
-        opacity: 0,
-        y: 20,
-        stagger: 0.05,
-        ease: 'power3.out',
-      })
-    }
-
-    // Fade in subtitle
-    if (subtitleRef.current) {
-      gsap.from(subtitleRef.current, {
-        duration: 1,
-        opacity: 0,
-        y: 20,
-        delay: 0.3,
-        ease: 'power3.out',
-      })
-    }
-  }, [])
 
   // Animated Grid Background
   useEffect(() => {
@@ -108,53 +78,87 @@ export function Hero() {
       />
 
       {/* Gradient Orbs */}
-      <div className="absolute top-1/4 -left-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-30" />
-      <div className="absolute bottom-1/4 -right-40 w-96 h-96 bg-secondary/10 rounded-full blur-3xl opacity-30" />
+      <motion.div 
+        className="absolute top-1/4 -left-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-30"
+        animate={{ y: [0, 30, 0] }}
+        transition={{ duration: 6, repeat: Infinity }}
+      />
+      <motion.div 
+        className="absolute bottom-1/4 -right-40 w-96 h-96 bg-secondary/10 rounded-full blur-3xl opacity-30"
+        animate={{ y: [0, -30, 0] }}
+        transition={{ duration: 8, repeat: Infinity }}
+      />
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <div className="mb-8 inline-block">
+        <motion.div 
+          className="mb-8 inline-block"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <span className="text-xs font-mono text-primary uppercase tracking-widest">
             Smart Contract Security
           </span>
-        </div>
+        </motion.div>
 
-        <h1
-          ref={titleRef}
+        <motion.h1
           className="text-6xl md:text-7xl lg:text-8xl font-display font-bold mb-6 leading-tight"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
         >
           Securing Web3
           <br />
           <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
             One Contract at a Time
           </span>
-        </h1>
+        </motion.h1>
 
-        <p
-          ref={subtitleRef}
+        <motion.p
           className="text-lg md:text-xl text-muted max-w-2xl mx-auto mb-12 leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
           Smart Contract Security Researcher, Bug Bounty Hunter, and FinTech Security Engineer.
           Protecting DeFi protocols with precision audits and vulnerability research.
-        </p>
+        </motion.p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="px-8 py-4 rounded-lg bg-gradient-to-r from-primary to-primary/80 text-background font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 transform hover:scale-105">
+        <motion.div 
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <motion.button 
+            className="px-8 py-4 rounded-lg bg-gradient-to-r from-primary to-primary/80 text-background font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             View Vulnerabilities
-          </button>
-          <button className="px-8 py-4 rounded-lg border border-primary/30 text-primary font-semibold hover:bg-primary/10 transition-all duration-300">
+          </motion.button>
+          <motion.button 
+            className="px-8 py-4 rounded-lg border border-primary/30 text-primary font-semibold hover:bg-primary/10 transition-all duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             View Reports
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <motion.div 
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
         <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
-      </div>
+      </motion.div>
     </section>
   )
 }

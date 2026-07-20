@@ -1,10 +1,7 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
+import { useRef } from 'react'
+import { motion } from 'framer-motion'
 
 const vulnerabilities = [
   {
@@ -68,67 +65,42 @@ export function Vulnerabilities() {
   const containerRef = useRef<HTMLDivElement>(null)
   const titleRef = useRef<HTMLHeadingElement>(null)
 
-  useEffect(() => {
-    if (!containerRef.current || !titleRef.current) return
-
-    // Animate title on scroll
-    gsap.from(titleRef.current, {
-      scrollTrigger: {
-        trigger: titleRef.current,
-        start: 'top 80%',
-      },
-      duration: 1,
-      opacity: 0,
-      y: 30,
-      ease: 'power3.out',
-    })
-
-    // Animate cards
-    const cards = containerRef.current.querySelectorAll('.vuln-card')
-    gsap.from(cards, {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top 70%',
-      },
-      duration: 1,
-      opacity: 0,
-      y: 40,
-      stagger: 0.1,
-      ease: 'power3.out',
-    })
-  }, [])
-
   return (
     <section id="vulnerabilities" className="relative py-32 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="mb-20">
+        <motion.div 
+          className="mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <span className="text-xs font-mono text-primary uppercase tracking-widest">
             Security Research
           </span>
-          <h2
-            ref={titleRef}
-            className="text-5xl md:text-6xl font-display font-bold mt-4 mb-6"
-          >
+          <h2 className="text-5xl md:text-6xl font-display font-bold mt-4 mb-6">
             Vulnerabilities Found
           </h2>
           <p className="text-lg text-muted max-w-2xl">
             A curated selection of critical vulnerabilities discovered in leading DeFi protocols.
             Each finding has been thoroughly analyzed and responsibly disclosed.
           </p>
-        </div>
+        </motion.div>
 
         {/* Vulnerabilities Grid */}
-        <div
-          ref={containerRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {vulnerabilities.map((vuln) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {vulnerabilities.map((vuln, idx) => {
             const colors = severityColors[vuln.severity as keyof typeof severityColors]
             return (
-              <div
+              <motion.div
                 key={vuln.id}
-                className="vuln-card group relative overflow-hidden rounded-2xl border border-primary/10 bg-surface/40 backdrop-blur-xl p-6 hover:border-primary/30 transition-all duration-300"
+                className="group relative overflow-hidden rounded-2xl border border-primary/10 bg-surface/40 backdrop-blur-xl p-6 hover:border-primary/30 transition-all duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5 }}
               >
                 {/* Gradient Background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -170,7 +142,7 @@ export function Vulnerabilities() {
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-              </div>
+              </motion.div>
             )
           })}
         </div>
