@@ -1,10 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import gsap from 'gsap/dist/gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger)
 
 const bounties = [
   { platform: 'HackerOne', total: '$250,000+', findings: '45+', status: 'Hall of Fame' },
