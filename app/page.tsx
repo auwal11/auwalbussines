@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import Lenis from 'lenis'
 import { Navbar } from '@/components/portfolio/navbar'
 import { Hero } from '@/components/portfolio/hero'
+import { Ticker } from '@/components/portfolio/ticker'
 import { Expertise } from '@/components/portfolio/expertise'
 import { CaseStudies } from '@/components/portfolio/case-studies'
 import { Timeline } from '@/components/portfolio/timeline'
@@ -26,20 +27,12 @@ export default function Page() {
   }, [])
 
   return (
-    <div className="bg-background text-foreground overflow-hidden">
+    <div className="min-h-screen w-full bg-background text-foreground" style={{ backgroundColor: '#0d1117' }}>
       <Navbar />
       <main>
         <Hero />
-        <Expertise />
-        <CaseStudies />
-        <Timeline />
-        <Methodology />
-        <Skills />
-        <Publications />
-        <Services />
-        <Contact />
+        <Ticker />
       </main>
-      <Footer />
     </div>
   )
 }

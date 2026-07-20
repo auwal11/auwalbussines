@@ -8,30 +8,30 @@
    ═══════════════════════════════════════════════════════════ */
 
 :root {
-  /* Premium Dark Design System - Security Researcher */
+  /* GSAP.com Inspired Design System - Security Researcher */
   
-  /* Backgrounds - Premium Dark */
-  --background: #0a0e27;
-  --surface: #0f1425;
-  --surface-alt: #0c1120;
-  --surface-hover: #141d35;
-  --card: #0f1425;
+  /* Backgrounds - Exact GSAP Dark Navy */
+  --background: #0d1117;
+  --surface: #161b22;
+  --surface-alt: #0f1419;
+  --surface-hover: #1c2128;
+  --card: #161b22;
   
-  /* Primary Accent - Emerald Green */
-  --primary: #00d9a3;
-  --primary-dim: rgba(0, 217, 163, 0.08);
-  --primary-hover: #00e6b0;
-  --primary-glow: rgba(0, 217, 163, 0.25);
+  /* Primary Accent - GSAP Green (#0ae448) */
+  --primary: #0ae448;
+  --primary-dim: rgba(10, 228, 72, 0.08);
+  --primary-hover: #1aff58;
+  --primary-glow: rgba(10, 228, 72, 0.3);
   
-  /* Secondary Accent - Cyan */
-  --secondary: #00b4d8;
-  --secondary-dim: rgba(0, 180, 216, 0.08);
-  --secondary-glow: rgba(0, 180, 216, 0.2);
+  /* Secondary Accents - GSAP Style */
+  --secondary: #00d4ff;
+  --secondary-dim: rgba(0, 212, 255, 0.08);
+  --secondary-glow: rgba(0, 212, 255, 0.2);
   
   /* Accent Colors */
-  --accent-emerald: #00d9a3;
-  --accent-cyan: #00b4d8;
-  --accent-purple: #7c3aed;
+  --accent-emerald: #0ae448;
+  --accent-cyan: #00d4ff;
+  --accent-purple: #7b2fff;
   --accent-indigo: #6366f1;
   --accent-blue: #0ea5e9;
   
@@ -478,7 +478,7 @@
   box-shadow: var(--glow-sm);
 }
 
-/* ═══════════════════════════════════════════════════════════
+/* ════════════���══════════════════════════════════════════════
    BUTTONS
    ═══════════════════════════════════════════════════════════ */
 
