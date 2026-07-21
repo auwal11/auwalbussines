@@ -1,111 +1,95 @@
-import { Globe, Languages, MapPin, Target, UserRound } from "lucide-react"
-import { Reveal } from "./reveal"
+'use client'
 
-interface SkillBar {
-  label: string
-  pct: number
-}
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 
-const SKILL_BARS: SkillBar[] = [
-  { label: "Smart Contract Security", pct: 90 },
-  { label: "Rust / Soroban Development", pct: 80 },
-  { label: "EVM / Solidity Auditing", pct: 85 },
-  { label: "Web Application Security", pct: 75 },
-  { label: "DeFi Protocol Analysis", pct: 88 },
-]
-
-const PROFILE: { icon: React.ElementType; label: string; value: string }[] = [
-  { icon: UserRound, label: "Name", value: "AUWAL" },
-  { icon: Globe, label: "Role", value: "Web3 Security Researcher & Software Developer" },
-  { icon: MapPin, label: "Location", value: "Nigeria" },
-  { icon: Languages, label: "Languages", value: "English" },
-  { icon: Target, label: "Focus", value: "DeFi Security, Smart Contract Auditing, Bug Bounty" },
-]
+gsap.registerPlugin(ScrollTrigger)
 
 export function About() {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!containerRef.current) return
+
+    // Animate lines in from bottom
+    gsap.from('.reveal-line', {
+      yPercent: 100,
+      opacity: 0,
+      duration: 1,
+      ease: 'power4.out',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: 'top 65%',
+        end: 'top 35%',
+        toggleActions: 'play none none none',
+      },
+    })
+  }, [])
+
   return (
-    <section id="about" className="relative scroll-mt-24 border-t border-zinc-900">
-      <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
-        <div className="mb-12 max-w-2xl">
-          <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-[#FF6B00]">
-            / 01 — Profile
-          </p>
-          <h2 className="mt-3 font-mono text-3xl font-bold tracking-tight text-zinc-50 sm:text-4xl">
-            About.
-          </h2>
+    <section
+      ref={containerRef}
+      id="about"
+      className="relative py-32 px-12 border-t border-border"
+    >
+      <div className="max-w-6xl mx-auto">
+        {/* Eyebrow */}
+        <div className="mb-16 flex items-center gap-3">
+          <div className="w-7 h-px bg-primary" />
+          <span className="text-xs font-mono uppercase tracking-[0.2em] text-primary">About</span>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
-          <Reveal className="lg:col-span-5">
-            <div className="h-full rounded-xl border border-[rgba(0,229,255,0.1)]/80 bg-[#0F0E1A]/40 p-6">
-              <div className="mb-5 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-amber-400/30 bg-[#FF6B00]/[0.08] text-[#FF6B00]">
-                    <UserRound className="h-4 w-4" />
-                  </span>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#CBD5E1]">
-                    whoami
-                  </p>
+        {/* Headline */}
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-900 mb-24 leading-tight">
+          <div className="overflow-hidden">
+            <div className="reveal-line">Why Auwal Bashar?</div>
+          </div>
+        </h2>
+
+        {/* Two column layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
+          {/* Left: Main narrative */}
+          <div className="space-y-6">
+            <p className="text-lg text-foreground-secondary leading-relaxed overflow-hidden">
+              <div className="reveal-line">
+                I hunt for vulnerabilities that matter — the kind that could bring down payment systems, drain smart contracts, or expose millions of user records.
+              </div>
+            </p>
+            <p className="text-lg text-foreground-secondary leading-relaxed overflow-hidden">
+              <div className="reveal-line">
+                I operate across HackerOne, HackenProof, and Cantina, focusing exclusively on FinTech platforms, DeFi protocols, and enterprise APIs where the impact is highest.
+              </div>
+            </p>
+            <p className="text-lg text-foreground-secondary leading-relaxed overflow-hidden">
+              <div className="reveal-line">
+                No overclaiming. No noise. Just methodical, evidence-backed vulnerability research.
+              </div>
+            </p>
+          </div>
+
+          {/* Right: Stats */}
+          <div className="grid grid-cols-2 gap-8">
+            {[
+              { label: 'Active on', value: '3+ Platforms' },
+              { label: 'Focus', value: 'FinTech & Web3' },
+              { label: 'Platforms', value: 'HackerOne, HackenProof, Cantina' },
+              { label: 'Methodology', value: 'OWASP-aligned' },
+            ].map((stat, idx) => (
+              <div
+                key={idx}
+                className="border-t border-border pt-4 overflow-hidden"
+              >
+                <div className="reveal-line text-xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
+                  {stat.label}
                 </div>
-                <span aria-hidden className="font-mono text-[10px] tracking-widest text-[#64748B]">
-                  ID/01
-                </span>
+                <div className="reveal-line text-base md:text-lg font-display font-700 text-foreground">
+                  {stat.value}
+                </div>
               </div>
-              <dl className="divide-y divide-zinc-800/80">
-                {PROFILE.map(({ icon: Icon, label, value }) => (
-                  <div key={label} className="grid grid-cols-3 gap-3 py-3">
-                    <dt className="col-span-1 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[#64748B]">
-                      <Icon className="h-3.5 w-3.5" />
-                      {label}
-                    </dt>
-                    <dd className="col-span-2 text-sm text-[#CBD5E1]">{value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </Reveal>
-
-          <Reveal className="lg:col-span-7" delayMs={120}>
-            <div className="flex h-full flex-col gap-7 rounded-xl border border-[rgba(0,229,255,0.1)]/80 bg-[#0F0E1A]/40 p-6">
-              <div>
-                <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-[#FF6B00]">
-                  $ cat about.md
-                </p>
-                <p className="mt-3 text-pretty text-base leading-relaxed text-[#CBD5E1]">
-                  Independent Web3 security researcher specialized in identifying critical
-                  vulnerabilities across DeFi protocols and Web3 infrastructure. Bug bounty hunter
-                  since <span className="text-[#FF6B00]">2020</span>, with active engagements on{" "}
-                  <span className="text-[#F8FAFC]">HackerOne</span>,{" "}
-                  <span className="text-[#F8FAFC]">HackenProof</span>,{" "}
-                  <span className="text-[#F8FAFC]">Code4rena</span>, and{" "}
-                  <span className="text-[#F8FAFC]">Cantina</span> — focused on logic bugs, access
-                  control flaws and economic exploits in smart contracts written in Solidity and
-                  Rust.
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                {SKILL_BARS.map((s, i) => (
-                  <div key={s.label}>
-                    <div className="mb-1.5 flex items-center justify-between font-mono text-[11px]">
-                      <span className="text-[#CBD5E1]">{s.label}</span>
-                      <span className="text-[#FF6B00]">{s.pct}%</span>
-                    </div>
-                    <div className="h-1 w-full overflow-hidden rounded-full bg-[#1A2332]">
-                      <div
-                        className="h-full rounded-full bg-[#FF6B00] shadow-[0_0_10px_rgba(251,191,36,0.5)]"
-                        style={{
-                          width: `${s.pct}%`,
-                          transition: "width 1.2s ease-out",
-                          transitionDelay: `${i * 100}ms`,
-                        }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>
