@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
@@ -8,8 +8,10 @@ gsap.registerPlugin(ScrollTrigger)
 
 export function Contact() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
+    setIsMounted(true)
     if (!containerRef.current) return
 
     gsap.from('.cta-word', {
@@ -27,11 +29,11 @@ export function Contact() {
   }, [])
 
   return (
-    <section ref={containerRef} id="contact" className="relative py-32 px-12 border-t border-border">
+    <section ref={containerRef} id="contact" className="relative py-32 px-12 border-t border-border" suppressHydrationWarning>
       <div className="max-w-6xl mx-auto">
         {/* Large CTA Headline */}
         <div className="mb-16 text-center">
-          <h2 className="text-6xl md:text-8xl font-display font-900 leading-tight mb-8">
+          <h2 className="text-6xl md:text-8xl font-display font-800 leading-tight mb-8" suppressHydrationWarning>
             <div className="overflow-hidden">
               <span className="cta-word inline-block text-white">Open</span>
             </div>

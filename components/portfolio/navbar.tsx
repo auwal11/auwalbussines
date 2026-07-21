@@ -4,8 +4,10 @@ import { useEffect, useState } from 'react'
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
+    setIsMounted(true)
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 80)
     }
@@ -17,7 +19,7 @@ export function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-40 px-12 h-20 flex items-center justify-between transition-all duration-300 ${
-        isScrolled
+        isMounted && isScrolled
           ? 'bg-background/90 backdrop-blur-lg border-b border-border'
           : 'bg-transparent'
       }`}

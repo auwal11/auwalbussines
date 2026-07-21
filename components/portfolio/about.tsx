@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
@@ -8,8 +8,10 @@ gsap.registerPlugin(ScrollTrigger)
 
 export function About() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
+    setIsMounted(true)
     if (!containerRef.current) return
 
     // Animate lines in from bottom
@@ -27,6 +29,33 @@ export function About() {
       },
     })
   }, [])
+
+  if (!isMounted) {
+    return (
+      <section
+        ref={containerRef}
+        id="about"
+        className="relative py-32 px-12 border-t border-border"
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-16 flex items-center gap-3">
+            <div className="w-7 h-px bg-primary" />
+            <span className="text-xs font-mono uppercase tracking-[0.2em] text-primary">About</span>
+          </div>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-800 mb-24 leading-tight">
+            Why Auwal Bashar?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24">
+            <div className="space-y-6">
+              <p className="text-lg text-foreground-secondary leading-relaxed">
+                I hunt for vulnerabilities that matter.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section

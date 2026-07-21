@@ -89,13 +89,14 @@ export function Hero() {
       {/* Main headline with logo */}
       <div className="relative z-10 flex-1 flex flex-col justify-center">
         {/* Line 1: SECURITY (filled) */}
-        <h1 className="text-white font-display font-900 leading-none mb-0">
+        <h1 className="text-white font-display font-900 leading-none mb-0" suppressHydrationWarning>
           <span
             style={{
               fontSize: 'clamp(80px, 15vw, 220px)',
               display: 'block',
               overflow: 'visible',
             }}
+            suppressHydrationWarning
           >
             {firstLine.split('').map((letter, i) => (
               <span
@@ -156,6 +157,7 @@ export function Hero() {
             WebkitTextStroke: '2px #0ae448',
             display: 'block',
           }}
+          suppressHydrationWarning
         >
           {secondLine.split('').map((letter, i) => (
             <span

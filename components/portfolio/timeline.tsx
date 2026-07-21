@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
@@ -8,8 +8,10 @@ gsap.registerPlugin(ScrollTrigger)
 
 export function Timeline() {
   const containerRef = useRef<HTMLDivElement>(null)
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
+    setIsMounted(true)
     if (!containerRef.current) return
 
     gsap.from('.timeline-entry', {
@@ -50,7 +52,7 @@ export function Timeline() {
   ]
 
   return (
-    <section ref={containerRef} id="timeline" className="relative py-32 px-12 border-t border-border">
+    <section ref={containerRef} id="timeline" className="relative py-32 px-12 border-t border-border" suppressHydrationWarning>
       <div className="max-w-6xl mx-auto">
         {/* Eyebrow */}
         <div className="mb-16 flex items-center gap-3">
@@ -59,7 +61,7 @@ export function Timeline() {
         </div>
 
         {/* Headline */}
-        <h2 className="text-5xl md:text-7xl font-display font-900 mb-24 leading-tight">Journey</h2>
+        <h2 className="text-5xl md:text-7xl font-display font-800 mb-24 leading-tight">Journey</h2>
 
         {/* Timeline entries */}
         <div className="space-y-12 relative pl-8">
