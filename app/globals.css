@@ -70,10 +70,9 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-dm-sans), 'DM Sans', ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-syne), 'Syne', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-space-mono), 'Space Mono', ui-monospace, monospace;
-  --font-serif: var(--font-crimson-pro), 'Crimson Pro', ui-serif, Georgia, serif;
+  --font-sans: var(--font-sans), 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), 'Space Mono', ui-monospace, monospace;
   
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -261,7 +260,7 @@
 
 /* ═══════════════════════════════════════════════════════════
    ANIMATION UTILITIES
-   ════════════════════════════════════════════════════════�����══ */
+   ══════════════���═════════════════════════════════════════�����══ */
 
 .animate-blink { animation: blink 1.05s step-end infinite; }
 .animate-pulse-ring { animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
@@ -478,9 +477,9 @@
   box-shadow: var(--glow-sm);
 }
 
-/* ════════════���══════════════════════════════════════════════
+/* ═══��════════���══════════════════════════════════════════════
    BUTTONS
-   ═══════════════════════════════════════════════════════════ */
+   ════════════���══════════════════════════════════════════════ */
 
 .btn-primary {
   background: linear-gradient(135deg, #D97706 0%, #F59E0B 100%);

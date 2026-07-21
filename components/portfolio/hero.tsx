@@ -11,31 +11,33 @@ export function Hero() {
   useEffect(() => {
     if (!containerRef.current || !lettersRef.current) return
 
-    // Filter out null references
+    // Letter animation - scatter to assemble
     const validLetters = lettersRef.current.filter((el) => el !== null)
-    
     if (validLetters.length > 0) {
-      // Initial scattered state
-      gsap.set(validLetters, {
+      gsap.from(validLetters, {
+        x: () => (Math.random() - 0.5) * 1600,
+        y: () => (Math.random() - 0.5) * 1200,
+        rotation: () => (Math.random() - 0.5) * 720,
+        scale: () => Math.random() * 1.5 + 0.2,
         opacity: 0,
-        x: () => gsap.utils.random(-300, 300),
-        y: () => gsap.utils.random(-300, 300),
-        rotation: () => gsap.utils.random(-45, 45),
+        duration: 1.6,
+        ease: 'power4.out',
+        stagger: { each: 0.035, from: 'random' },
       })
 
-      // Animate letters to center
+      // Floating animation after landing
       gsap.to(validLetters, {
-        duration: 1.4,
-        opacity: 1,
-        x: 0,
-        y: 0,
-        rotation: 0,
-        stagger: 0.05,
-        ease: 'back.out',
+        y: (i) => Math.sin(i * 0.5) * 8,
+        duration: 3,
+        ease: 'sine.inOut',
+        stagger: 0.01,
+        delay: 1.7,
+        yoyo: true,
+        repeat: -1,
       })
     }
 
-    // Spin logo continuously
+    // Spinning pinwheel logo
     if (logoRef.current) {
       gsap.to(logoRef.current, {
         rotation: 360,
@@ -44,34 +46,59 @@ export function Hero() {
         ease: 'none',
       })
     }
+
+    // Tagline fade in
+    const tagline = containerRef.current.querySelector('[data-tagline]')
+    if (tagline) {
+      gsap.from(tagline, {
+        opacity: 0,
+        y: 20,
+        duration: 0.8,
+        ease: 'power2.out',
+        delay: 1.2,
+      })
+    }
+
+    // CTA button slide up
+    const cta = containerRef.current.querySelector('[data-cta]')
+    if (cta) {
+      gsap.from(cta, {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        ease: 'power2.out',
+        delay: 1.4,
+      })
+    }
   }, [])
 
-  const mainText = 'VULNERABILITY RESEARCH'
+  const firstLine = 'SECURITY'
+  const secondLine = 'RESEARCH.'
 
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-24 bg-background"
+      className="relative w-full min-h-screen bg-background overflow-hidden flex flex-col justify-between px-12 pt-32 pb-16"
     >
-      {/* Background elements */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-3xl -left-40 top-1/3 pointer-events-none opacity-50" />
-        <div className="absolute w-[500px] h-[500px] rounded-full bg-gradient-to-br from-secondary/10 to-transparent blur-3xl -right-32 bottom-1/4 pointer-events-none opacity-40" />
+      {/* Background glows */}
+      <div className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="absolute w-96 h-96 rounded-full bg-gradient-to-br from-primary/5 to-transparent blur-3xl -left-48 top-1/4" />
+        <div className="absolute w-80 h-80 rounded-full bg-gradient-to-br from-secondary/5 to-transparent blur-3xl -right-40 bottom-1/3" />
       </div>
 
-      {/* Main content */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
-        {/* Eyebrow */}
-        <div className="text-center mb-12">
-          <span className="text-xs font-mono text-primary uppercase tracking-[0.2em]">
-            Security Researcher
-          </span>
-        </div>
-
-        {/* Headline */}
-        <div className="relative mb-8">
-          <h1 className="text-6xl md:text-7xl lg:text-[110px] font-bold tracking-tight leading-none text-center">
-            {mainText.split('').map((letter, i) => (
+      {/* Main headline with logo */}
+      <div className="relative z-10 flex-1 flex flex-col justify-center">
+        {/* Line 1: SECURITY (filled) */}
+        <h1 className="text-white font-display font-900 leading-none mb-0" suppressHydrationWarning>
+          <span
+            style={{
+              fontSize: 'clamp(80px, 15vw, 220px)',
+              display: 'block',
+              overflow: 'visible',
+            }}
+            suppressHydrationWarning
+          >
+            {firstLine.split('').map((letter, i) => (
               <span
                 key={i}
                 ref={(el) => {
@@ -82,48 +109,98 @@ export function Hero() {
                 {letter === ' ' ? '\u00A0' : letter}
               </span>
             ))}
-          </h1>
+          </span>
+        </h1>
 
-          {/* Spinning logo */}
+        {/* Spinning logo - between the two lines */}
+        <div className="relative -my-8 pl-2 h-28 md:h-40 flex items-center pointer-events-none">
           <svg
             ref={logoRef}
             viewBox="0 0 100 100"
-            className="absolute -right-12 top-1/2 -translate-y-1/2 w-24 h-24 md:w-32 md:h-32 text-primary"
+            className="w-24 h-24 md:w-40 md:h-40"
+            style={{ willChange: 'transform' }}
           >
-            <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.3" />
-            <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-            <path d="M 50 20 L 65 35 L 65 65 Q 50 75 35 65 L 35 35 Z" fill="none" stroke="currentColor" strokeWidth="2" />
-            <circle cx="50" cy="50" r="8" fill="currentColor" />
+            {/* Petal 1 - top-right (green) */}
+            <path
+              d="M 50 20 Q 70 30, 75 50 Q 70 35, 50 30 Z"
+              fill="#0ae448"
+              opacity="0.9"
+            />
+            {/* Petal 2 - bottom-right (cyan) */}
+            <path
+              d="M 75 50 Q 70 70, 50 80 Q 60 65, 70 60 Z"
+              fill="#00d4ff"
+              opacity="0.8"
+            />
+            {/* Petal 3 - bottom-left (transparent green) */}
+            <path
+              d="M 50 80 Q 30 70, 25 50 Q 35 65, 50 70 Z"
+              fill="#0ae448"
+              opacity="0.5"
+            />
+            {/* Petal 4 - top-left (transparent cyan) */}
+            <path
+              d="M 25 50 Q 30 30, 50 20 Q 40 35, 30 45 Z"
+              fill="#00d4ff"
+              opacity="0.6"
+            />
+            {/* Center circle */}
+            <circle cx="50" cy="50" r="6" fill="#0ae448" />
           </svg>
         </div>
 
-        {/* Subtitle */}
-        <div className="text-center mb-12 max-w-2xl mx-auto">
-          <p className="text-lg md:text-xl text-foreground/80 leading-relaxed mb-4">
-            Securing critical infrastructure across Web3, FinTech, and Enterprise platforms
-          </p>
-          <p className="text-sm md:text-base text-primary font-mono uppercase tracking-wider">
-            Vulnerability Research • Product Security • API Security • Smart Contract Analysis
-          </p>
+        {/* Line 2: RESEARCH (outline only) */}
+        <h2
+          className="font-display font-900 leading-none text-transparent"
+          style={{
+            fontSize: 'clamp(90px, 17vw, 240px)',
+            WebkitTextStroke: '2px #0ae448',
+            display: 'block',
+          }}
+          suppressHydrationWarning
+        >
+          {secondLine.split('').map((letter, i) => (
+            <span
+              key={`second-${i}`}
+              ref={(el) => {
+                lettersRef.current[firstLine.length + i] = el
+              }}
+              className="inline-block"
+            >
+              {letter === ' ' ? '\u00A0' : letter}
+            </span>
+          ))}
+        </h2>
+      </div>
+
+      {/* Bottom content - tagline and CTA */}
+      <div className="relative z-10 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+        {/* Left: Tagline in brackets */}
+        <div data-tagline className="max-w-sm">
+          <div className="text-sm md:text-base text-foreground-secondary leading-relaxed font-sans">
+            <span className="text-primary">{'{'}</span> Security Researcher specializing in Vulnerability Research, API
+            Security, Smart Contract Audits &amp; FinTech Security
+            <span className="text-primary">{' }'}</span>
+          </div>
         </div>
 
-        {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <button className="px-8 py-4 rounded-full bg-primary text-background font-bold text-sm uppercase tracking-wider transition-all duration-300 hover:shadow-lg hover:shadow-primary/50 hover:-translate-y-1 cursor-pointer">
-            View Case Studies
-          </button>
-          <button className="px-8 py-4 rounded-full border border-primary/40 text-primary font-bold text-sm uppercase tracking-wider transition-all duration-300 hover:border-primary hover:bg-primary/10 cursor-pointer">
-            Get in Touch
-          </button>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-primary/60">
-          <span className="text-xs font-mono uppercase tracking-wider">Scroll to explore</span>
-          <svg className="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        {/* Right: CTA Button */}
+        <button
+          data-cta
+          className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-background rounded-full font-mono font-bold text-xs uppercase tracking-widest transition-all duration-300 hover:shadow-lg hover:shadow-primary/50 hover:-translate-y-1 cursor-pointer whitespace-nowrap"
+        >
+          <span>View Work</span>
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M7 7h10v10M7 17L17 7" />
           </svg>
-        </div>
+        </button>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-12 text-primary/50">
+        <svg className="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
       </div>
     </section>
   )

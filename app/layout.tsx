@@ -1,57 +1,50 @@
 import type { Metadata } from "next"
-import { DM_Sans, Syne, Space_Mono, Crimson_Pro } from "next/font/google"
+import { Plus_Jakarta_Sans, DM_Sans, Space_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Toaster } from "sonner"
 import "./globals.css"
 
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  weight: ["700", "800"],
+})
+
 const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  variable: "--font-sans",
   display: "swap",
   weight: ["300", "400", "500", "600", "700"],
 })
 
-const syne = Syne({
-  subsets: ["latin"],
-  variable: "--font-syne",
-  display: "swap",
-  weight: ["600", "700", "800"],
-})
-
 const spaceMono = Space_Mono({
   subsets: ["latin"],
-  variable: "--font-space-mono",
+  variable: "--font-mono",
   display: "swap",
   weight: ["400", "700"],
 })
 
-const crimsonPro = Crimson_Pro({
-  subsets: ["latin"],
-  variable: "--font-crimson-pro",
-  display: "swap",
-  weight: ["400", "600", "700"],
-})
-
 export const metadata: Metadata = {
-  title: "Auwal Business — Building Smart Websites & Apps",
+  title: "Auwal Bashar — Security Researcher | Vulnerability Research & FinTech Security",
   description:
-    "AI-powered web development, mobile apps, dashboards, and digital solutions. Transform your business with intelligent technology.",
+    "Vulnerability research specialist focusing on API security, smart contract audits, and FinTech security. Active on HackerOne, HackenProof, and Cantina.",
   generator: "v0.app",
   keywords: [
-    "Web Development",
-    "AI Applications",
-    "Mobile Apps",
-    "Flutter",
-    "Admin Dashboards",
-    "E-Commerce",
-    "Digital Solutions",
-    "Nigeria",
-    "Business Websites",
+    "Security Researcher",
+    "Vulnerability Research",
+    "Product Security",
+    "API Security",
+    "Smart Contract Security",
+    "FinTech Security",
+    "Bug Bounty",
+    "HackerOne",
+    "Penetration Testing",
   ],
-  authors: [{ name: "Auwal Business" }],
+  authors: [{ name: "Auwal Bashar" }],
   openGraph: {
-    title: "Auwal Business — Building Smart Websites & Apps",
-    description: "AI-powered web development, mobile apps, and digital solutions for modern businesses.",
+    title: "Auwal Bashar — Security Researcher",
+    description: "Vulnerability research specialist focusing on API security, smart contracts, and FinTech platforms.",
     type: "website",
   },
 }
@@ -70,7 +63,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${syne.variable} ${spaceMono.variable} ${crimsonPro.variable} bg-background`}
+      className={`${plusJakartaSans.variable} ${dmSans.variable} ${spaceMono.variable} bg-background`}
     >
       <body className="font-sans antialiased bg-background text-foreground selection:bg-primary/20 selection:text-white">
         {children}

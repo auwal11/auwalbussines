@@ -18,22 +18,18 @@ export function Ticker() {
     const originalHTML = track.innerHTML
     track.innerHTML = originalHTML + originalHTML
 
-    // Infinite scrolling animation
-    gsap.to(track, {
+    // Create animation timeline
+    const timeline = gsap.timeline({ repeat: -1 })
+    timeline.to(track, {
       x: -track.scrollWidth / 2,
       duration: 30,
-      repeat: -1,
       ease: 'none',
     })
 
-    // Pause on hover
-    track.addEventListener('mouseenter', () => {
-      gsap.to(track, { duration: 0.5, ease: 'power2.inOut' })
-    })
-
-    track.addEventListener('mouseleave', () => {
-      gsap.to(track, { duration: 0.5, ease: 'power2.inOut' })
-    })
+    // Cleanup function
+    return () => {
+      timeline.kill()
+    }
   }, [])
 
   const items = [

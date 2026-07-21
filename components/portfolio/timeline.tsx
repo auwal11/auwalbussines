@@ -1,88 +1,91 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 
-const timeline = [
-  {
-    year: '2024',
-    title: 'Security Research Focus',
-    description: 'Deepening expertise in vulnerability research across APIs, smart contracts, and fintech systems.',
-  },
-  {
-    year: '2023',
-    title: 'Product Security Engagements',
-    description: 'Working with enterprises on security architecture, threat modeling, and vulnerability remediation.',
-  },
-  {
-    year: '2022',
-    title: 'Expanding Scope',
-    description: 'Broadened research focus beyond Web3 to include traditional fintech and enterprise applications.',
-  },
-  {
-    year: '2021',
-    title: 'Development & Research',
-    description: 'Combining software development with security research for deeper technical understanding.',
-  },
-  {
-    year: '2020',
-    title: 'Security Research Begins',
-    description: 'Started formal security research and vulnerability disclosure practices.',
-  },
-]
+gsap.registerPlugin(ScrollTrigger)
 
 export function Timeline() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+    if (!containerRef.current) return
+
+    gsap.from('.timeline-entry', {
+      x: 60,
+      opacity: 0,
+      duration: 0.9,
+      ease: 'power3.out',
+      stagger: 0.15,
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: 'top 70%',
+        toggleActions: 'play none none none',
+      },
+    })
+  }, [])
+
+  const entries = [
+    {
+      year: '2024 — Present',
+      title: 'Active Bug Bounty Researcher',
+      content: 'Platforms: HackerOne · HackenProof · Cantina\nFocus: API Security, FinTech platforms, Smart Contract Audits\nStatus: Active',
+    },
+    {
+      year: '2023',
+      title: 'Expanded into Smart Contract Security',
+      content: 'Began auditing Solidity contracts on Cantina platform.\nFocus: EVM security, DeFi protocol vulnerabilities, reentrancy patterns, access control weaknesses.',
+    },
+    {
+      year: '2022',
+      title: 'Web Application & API Security Focus',
+      content: 'Deepened expertise in REST API vulnerabilities, authentication bypass techniques, and OWASP Top 10.\nActive on HackerOne and HackenProof programs.',
+    },
+    {
+      year: '2020',
+      title: 'Started Vulnerability Research',
+      content: 'Began systematic security research. First reported vulnerabilities through responsible disclosure.\nStarted on public bug bounty platforms.',
+    },
+  ]
+
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <span className="text-xs font-mono text-primary uppercase tracking-widest">
-            Timeline
-          </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6 text-foreground">
-            Professional Journey
-          </h2>
-          <p className="text-lg text-muted max-w-2xl">
-            Evolution of expertise and focus in security research and vulnerability management.
-          </p>
-        </motion.div>
+    <section ref={containerRef} id="timeline" className="relative py-32 px-12 border-t border-border" suppressHydrationWarning>
+      <div className="max-w-6xl mx-auto">
+        {/* Eyebrow */}
+        <div className="mb-16 flex items-center gap-3">
+          <div className="w-7 h-px bg-primary" />
+          <span className="text-xs font-mono uppercase tracking-[0.2em] text-primary">Journey</span>
+        </div>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-secondary to-primary/50 opacity-30" />
+        {/* Headline */}
+        <h2 className="text-5xl md:text-7xl font-display font-800 mb-24 leading-tight">Journey</h2>
 
-          {/* Timeline items */}
-          <div className="space-y-12">
-            {timeline.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className={`relative flex flex-col md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-0 md:left-1/2 top-0 w-4 h-4 rounded-full bg-primary border-4 border-background transform -translate-x-1.5 md:-translate-x-2" />
+        {/* Timeline entries */}
+        <div className="space-y-12 relative pl-8">
+          {/* Green glowing line */}
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary to-primary/30 shadow-lg shadow-primary/30" />
 
-                {/* Content */}
-                <div className={`flex-1 pl-8 md:pl-0 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
-                  <div className="rounded-2xl border border-primary/10 bg-surface/40 backdrop-blur-xl p-6">
-                    <span className="inline-block px-3 py-1 rounded-full text-xs font-mono bg-primary/10 text-primary mb-3">
-                      {item.year}
-                    </span>
-                    <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
-                    <p className="text-muted">{item.description}</p>
-                  </div>
+          {entries.map((entry, idx) => (
+            <div key={idx} className="timeline-entry group">
+              {/* Glowing dot */}
+              <div className="absolute -left-4 top-2 w-2 h-2 rounded-full bg-primary shadow-lg shadow-primary/50" />
+
+              <div className="space-y-2">
+                <div className="text-xs font-mono text-primary uppercase tracking-widest">
+                  {entry.year}
                 </div>
-              </motion.div>
-            ))}
-          </div>
+                <h3 className="text-2xl font-display font-700 text-foreground group-hover:text-primary transition-colors duration-300">
+                  {entry.title}
+                </h3>
+                <p className="text-base text-foreground-secondary leading-relaxed whitespace-pre-line">
+                  {entry.content}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
