@@ -8,65 +8,57 @@
    ═══════════════════════════════════════════════════════════ */
 
 :root {
-  /* GSAP.com Inspired Design System - Security Researcher */
+  /* GSAP.com Exact Color System - Security Researcher */
   
-  /* Backgrounds - Exact GSAP Dark Navy */
-  --background: #0d1117;
-  --surface: #161b22;
-  --surface-alt: #0f1419;
-  --surface-hover: #1c2128;
-  --card: #161b22;
+  /* Backgrounds - Exact GSAP Dark Charcoal */
+  --background: #0d0d0d;
+  --surface: #111111;
+  --surface-alt: #0f0f0f;
+  --surface-hover: #1a1a1a;
+  --card: #111111;
+  --bg-border: #1a1a1a;
   
-  /* Primary Accent - GSAP Green (#0ae448) */
-  --primary: #0ae448;
-  --primary-dim: rgba(10, 228, 72, 0.08);
-  --primary-hover: #1aff58;
-  --primary-glow: rgba(10, 228, 72, 0.3);
-  
-  /* Secondary Accents - GSAP Style */
-  --secondary: #00d4ff;
-  --secondary-dim: rgba(0, 212, 255, 0.08);
-  --secondary-glow: rgba(0, 212, 255, 0.2);
-  
-  /* Accent Colors */
-  --accent-emerald: #0ae448;
-  --accent-cyan: #00d4ff;
-  --accent-purple: #7b2fff;
-  --accent-indigo: #6366f1;
-  --accent-blue: #0ea5e9;
-  
-  /* Semantic Colors */
-  --critical: #ef4444;
-  --high: #f97316;
-  --medium: #eab308;
-  --low: #10b981;
-  --info: #0ea5e9;
-  
-  /* Text Colors */
-  --foreground: #f0f4ff;
+  /* Text - Pure White (main), Muted Grays (secondary) */
+  --foreground: #ffffff;
   --foreground-secondary: #d1d5db;
-  --muted: #9ca3af;
-  --muted-foreground: #6b7280;
+  --text: #ffffff;
+  --text-muted: #6b7280;
+  --text-dim: #374151;
   
-  /* Borders & Dividers */
-  --border: rgba(0, 217, 163, 0.1);
-  --border-hover: rgba(0, 217, 163, 0.2);
-  --border-strong: rgba(0, 217, 163, 0.3);
-  --ring: rgba(0, 217, 163, 0.4);
+  /* Primary Accent - GSAP Green (#0ae448) - ONLY for top banner */
+  --accent-green: #0ae448;
+  --accent-green-dim: rgba(10, 228, 72, 0.08);
+  --accent-green-hover: #1aff58;
+  --accent-green-glow: rgba(10, 228, 72, 0.3);
+  
+  /* Secondary Accents for Pinwheel Logo */
+  --accent-orange: #ff6b35;
+  --accent-purple: #a855f7;
+  --accent-pink: #ec4899;
+  --accent-lime: #4ade80;
+  
+  /* Borders - Subtle white-based */
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.15);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --ring: rgba(255, 255, 255, 0.3);
   
   /* Radius */
   --radius: 0.75rem;
   
-  /* Shadows - Deep with Emerald Tint */
+  /* Shadows - Dark and deep */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
   
-  /* Glows - Emerald & Cyan */
-  --glow-sm: 0 0 16px rgba(0, 217, 163, 0.15);
-  --glow-md: 0 0 24px rgba(0, 217, 163, 0.2);
-  --glow-lg: 0 0 40px rgba(0, 217, 163, 0.3);
-  --glow-cyan: 0 0 24px rgba(0, 180, 216, 0.2);
+  /* Glows - Green only for accents */
+  --glow-sm: 0 0 16px rgba(10, 228, 72, 0.15);
+  --glow-md: 0 0 24px rgba(10, 228, 72, 0.2);
+  --glow-lg: 0 0 40px rgba(10, 228, 72, 0.3);
+  
+  /* Muted */
+  --muted: #9ca3af;
+  --muted-foreground: #6b7280;
 }
 
 @theme inline {
@@ -81,24 +73,20 @@
   --color-surface-alt: var(--surface-alt);
   --color-surface-hover: var(--surface-hover);
   --color-card: var(--card);
-  --color-primary: var(--primary);
-  --color-primary-hover: var(--primary-hover);
-  --color-primary-dim: var(--primary-dim);
-  --color-secondary: var(--secondary);
-  --color-accent-cyan: var(--accent-cyan);
-  --color-accent-blue: var(--accent-blue);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-dim: var(--text-dim);
+  --color-accent-green: var(--accent-green);
+  --color-accent-orange: var(--accent-orange);
   --color-accent-purple: var(--accent-purple);
-  --color-accent-indigo: var(--accent-indigo);
+  --color-accent-pink: var(--accent-pink);
+  --color-accent-lime: var(--accent-lime);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
   --color-border-hover: var(--border-hover);
   --color-border-strong: var(--border-strong);
   --color-ring: var(--ring);
-  --color-warning: var(--warning);
-  --color-danger: var(--danger);
-  --color-success: var(--success);
-  --color-info: var(--info);
   
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -226,13 +214,13 @@
 }
 
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 180, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(0, 255, 180, 0.5), 0 0 60px rgba(0, 255, 180, 0.2); }
+  0%, 100% { box-shadow: 0 0 20px rgba(10, 228, 72, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(10, 228, 72, 0.5), 0 0 60px rgba(10, 228, 72, 0.2); }
 }
 
 @keyframes border-glow {
-  0%, 100% { border-color: rgba(0, 255, 180, 0.2); }
-  50% { border-color: rgba(0, 255, 180, 0.5); }
+  0%, 100% { border-color: rgba(10, 228, 72, 0.2); }
+  50% { border-color: rgba(10, 228, 72, 0.5); }
 }
 
 @keyframes gradient-shift {
@@ -482,38 +470,36 @@
    ════════════���══════════════════════════════════════════════ */
 
 .btn-primary {
-  background: linear-gradient(135deg, #D97706 0%, #F59E0B 100%);
-  color: #0a0a0a;
+  background: #0ae448;
+  color: #000000;
   font-weight: 700;
-  border-radius: var(--radius);
+  border-radius: 100px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 16px rgba(217, 119, 6, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(217, 119, 6, 0.3);
+  border: none;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 0.875rem;
+  padding: 10px 24px;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(217, 119, 6, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  border-color: rgba(217, 119, 6, 0.6);
-  background: linear-gradient(135deg, #F59E0B 0%, #FCD34D 100%);
+  background: #1aff58;
+  transform: translateY(-1px);
 }
 
 .btn-ghost {
   background: transparent;
-  border: 1px solid var(--border-hover);
-  color: var(--primary);
-  border-radius: var(--radius);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  border-radius: 100px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 600;
+  padding: 10px 24px;
 }
 
 .btn-ghost:hover {
-  background: rgba(217, 119, 6, 0.08);
-  border-color: var(--primary);
-  box-shadow: var(--glow-sm);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-1px);
 }
 

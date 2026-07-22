@@ -1,85 +1,161 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { Shield, Lock, Code, Database, Bug, Zap } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 
-const expertiseAreas = [
+gsap.registerPlugin(ScrollTrigger)
+
+const expertiseCards = [
   {
-    icon: Bug,
+    num: '01',
     title: 'Vulnerability Research',
-    description: 'Systematic discovery and analysis of security weaknesses in applications and systems.',
+    description: 'Systematic discovery of weaknesses in apps and systems. Manual analysis, code review, PoC dev.',
+    tags: ['Manual Testing', 'Code Review', 'PoC'],
   },
   {
-    icon: Lock,
-    title: 'Product Security',
-    description: 'Securing products through security design, threat modeling, and secure development practices.',
-  },
-  {
-    icon: Code,
+    num: '02',
     title: 'API Security',
-    description: 'Identifying authorization, authentication, and data exposure vulnerabilities in APIs.',
+    description: 'REST, GraphQL, WebSocket auth bypasses, mass assignment, business logic vulns.',
+    tags: ['REST', 'GraphQL', 'Auth'],
   },
   {
-    icon: Database,
+    num: '03',
     title: 'Smart Contract Security',
-    description: 'Analyzing blockchain protocols and smart contracts for logic and economic vulnerabilities.',
+    description: 'Solidity audits, reentrancy, access control, DeFi logic flaws. EVM security focus.',
+    tags: ['Solidity', 'Reentrancy', 'DeFi'],
   },
   {
-    icon: Zap,
+    num: '04',
     title: 'FinTech Security',
-    description: 'Securing financial systems, payment networks, and digital asset infrastructure.',
+    description: 'Payment systems, digital wallets, banking APIs, transaction integrity, fraud vectors.',
+    tags: ['Payments', 'Wallets', 'Banking'],
   },
   {
-    icon: Shield,
-    title: 'Security Triage',
-    description: 'Prioritizing vulnerabilities by risk, impact, and exploitability for efficient remediation.',
+    num: '05',
+    title: 'Vulnerability Triage',
+    description: 'CVSS scoring, impact analysis, clear repro steps. Technical → actionable intelligence.',
+    tags: ['CVSS', 'Scoring', 'Reports'],
+  },
+  {
+    num: '06',
+    title: 'Product Security',
+    description: 'Security from design to deploy. Threat modeling, SDLC integration, risk prioritization.',
+    tags: ['Threat Model', 'SDLC', 'Risk'],
   },
 ]
 
 export function Expertise() {
-  return (
-    <section id="expertise" className="relative py-24 md:py-32 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <span className="text-xs font-mono text-primary uppercase tracking-widest">
-            Core Competencies
-          </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6 text-foreground">
-            Areas of Expertise
-          </h2>
-          <p className="text-lg text-muted max-w-2xl">
-            Specialized knowledge across vulnerability research, product security, and emerging technologies.
-          </p>
-        </motion.div>
+  const containerRef = useRef<HTMLDivElement>(null)
+  const trackRef = useRef<HTMLDivElement>(null)
+  const [isMounted, setIsMounted] = useState(false)
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {expertiseAreas.map((area, idx) => {
-            const Icon = area.icon
-            return (
-              <motion.div
+  useEffect(() => {
+    setIsMounted(true)
+    if (!trackRef.current || !containerRef.current) return
+
+    const track = trackRef.current
+    const container = containerRef.current
+
+    // Horizontal scroll animation with pin
+    gsap.to(track, {
+      x: () => -(track.scrollWidth - window.innerWidth + 96),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: container,
+        pin: true,
+        scrub: 0.8,
+        start: 'top top',
+        end: () => '+=' + (track.scrollWidth - window.innerWidth + 200),
+        invalidateOnRefresh: true,
+      },
+    })
+
+    // Stagger card animations
+    gsap.from('.expertise-card', {
+      y: 60,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power3.out',
+      stagger: 0.1,
+      scrollTrigger: {
+        trigger: container,
+        start: 'top 70%',
+      },
+    })
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    }
+  }, [isMounted])
+
+  return (
+    <section
+      ref={containerRef}
+      id="expertise"
+      className="relative w-full bg-background"
+      style={{ height: '500vh' }}
+    >
+      <div className="fixed top-0 left-0 right-0 bottom-0 w-full h-screen flex flex-col justify-start bg-background">
+        {/* Header */}
+        <div className="px-12 pt-24 pb-12">
+          <div className="max-w-6xl">
+            <div className="mb-4 flex items-center gap-3">
+              <div className="w-7 h-px bg-white/30" />
+              <span className="font-mono text-xs uppercase tracking-widest text-text-muted">Expertise</span>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-display font-800 mb-6 leading-tight">
+              Research Expertise
+            </h2>
+          </div>
+        </div>
+
+        {/* Horizontal Scroll Track */}
+        <div className="relative flex-1 overflow-hidden">
+          <div
+            ref={trackRef}
+            className="flex gap-5 h-full will-change-transform"
+            style={{ width: 'fit-content' }}
+          >
+            {expertiseCards.map((card, idx) => (
+              <div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5 }}
-                className="group relative overflow-hidden rounded-2xl border border-primary/10 bg-surface/40 backdrop-blur-xl p-8 hover:border-primary/30 transition-all duration-300"
+                className="expertise-card flex-shrink-0 w-80 h-96 bg-surface border border-white/8 rounded-2xl p-8 flex flex-col justify-between hover:border-white/15 transition-colors duration-300"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:to-primary/0 transition-colors duration-300" />
-                <div className="relative z-10">
-                  <Icon className="w-12 h-12 text-primary mb-4" />
-                  <h3 className="text-xl font-bold text-foreground mb-3">{area.title}</h3>
-                  <p className="text-muted leading-relaxed">{area.description}</p>
+                {/* Card Number */}
+                <div>
+                  <div className="font-mono text-xs text-text-dim mb-4 tracking-widest">
+                    {card.num}
+                  </div>
+                  {/* Title */}
+                  <h3 className="font-display font-800 text-xl text-white mb-3 leading-tight">
+                    {card.title}
+                  </h3>
+                  {/* Description */}
+                  <p className="font-sans text-sm text-text-muted leading-relaxed">
+                    {card.description}
+                  </p>
                 </div>
-              </motion.div>
-            )
-          })}
+
+                {/* Tags + Arrow */}
+                <div className="flex items-end justify-between">
+                  <div className="flex gap-2 flex-wrap">
+                    {card.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className="font-mono text-9px px-2.5 py-1.5 rounded-full border border-white/10 text-text-dim bg-white/3"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-text-muted text-xs group-hover:bg-white group-hover:text-black group-hover:border-white transition-all">
+                    →
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

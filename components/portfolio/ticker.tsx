@@ -34,18 +34,19 @@ export function Ticker() {
 
   const items = [
     'Vulnerability Research',
-    'API Security Testing',
+    'API Security',
     'Smart Contract Audits',
     'FinTech Security',
     'Product Security',
-    'Penetration Testing',
-    'Security Triage',
-    'Threat Modeling',
+    'Vulnerability Triage',
+    'HackerOne',
+    'HackenProof',
+    'Cantina',
   ]
 
   return (
-    <section className="border-t border-primary/10 border-b bg-surface/50 overflow-hidden">
-      <div className="py-4 md:py-6">
+    <section className="border-t border-b border-white/8 bg-surface overflow-hidden">
+      <div className="py-3 md:py-4">
         <div
           ref={trackRef}
           className="flex gap-0 will-change-transform"
@@ -53,12 +54,12 @@ export function Ticker() {
           {items.map((item, i) => (
             <div
               key={i}
-              className="ticker-item flex items-center gap-6 px-8 md:px-10 whitespace-nowrap flex-shrink-0"
+              className="ticker-item flex items-center gap-8 px-8 md:px-10 whitespace-nowrap flex-shrink-0"
             >
-              <span className="text-sm md:text-base font-mono text-foreground/70 uppercase tracking-wider">
+              <span className="text-xs md:text-sm font-mono text-text-muted uppercase tracking-widest">
                 {item}
               </span>
-              <div className="w-1 h-1 rounded-full bg-primary/40 flex-shrink-0" />
+              <div className="w-1 h-1 rounded-full bg-white/20 flex-shrink-0" />
             </div>
           ))}
         </div>

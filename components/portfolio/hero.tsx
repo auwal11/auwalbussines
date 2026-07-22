@@ -11,90 +11,51 @@ export function Hero() {
   useEffect(() => {
     if (!containerRef.current || !lettersRef.current) return
 
-    // Letter animation - scatter to assemble
+    // Letter animation - scatter to assemble (exact GSAP.com behavior)
     const validLetters = lettersRef.current.filter((el) => el !== null)
     if (validLetters.length > 0) {
       gsap.from(validLetters, {
-        x: () => (Math.random() - 0.5) * 1600,
-        y: () => (Math.random() - 0.5) * 1200,
+        x: () => (Math.random() - 0.5) * window.innerWidth * 1.5,
+        y: () => (Math.random() - 0.5) * window.innerHeight * 1.2,
         rotation: () => (Math.random() - 0.5) * 720,
-        scale: () => Math.random() * 1.5 + 0.2,
+        scale: () => Math.random() * 1.8 + 0.1,
         opacity: 0,
         duration: 1.6,
         ease: 'power4.out',
-        stagger: { each: 0.035, from: 'random' },
+        stagger: { each: 0.03, from: 'random' },
       })
 
-      // Floating animation after landing
+      // Subtle floating animation after landing
       gsap.to(validLetters, {
-        y: (i) => Math.sin(i * 0.5) * 8,
-        duration: 3,
+        y: () => (Math.random() - 0.5) * 14,
+        duration: () => 2 + Math.random() * 3,
         ease: 'sine.inOut',
-        stagger: 0.01,
-        delay: 1.7,
+        repeat: -1,
         yoyo: true,
-        repeat: -1,
-      })
-    }
-
-    // Spinning pinwheel logo
-    if (logoRef.current) {
-      gsap.to(logoRef.current, {
-        rotation: 360,
-        duration: 8,
-        repeat: -1,
-        ease: 'none',
-      })
-    }
-
-    // Tagline fade in
-    const tagline = containerRef.current.querySelector('[data-tagline]')
-    if (tagline) {
-      gsap.from(tagline, {
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-        ease: 'power2.out',
-        delay: 1.2,
-      })
-    }
-
-    // CTA button slide up
-    const cta = containerRef.current.querySelector('[data-cta]')
-    if (cta) {
-      gsap.from(cta, {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        ease: 'power2.out',
-        delay: 1.4,
+        stagger: { each: 0.05, from: 'random' },
+        delay: () => Math.random() * 1,
       })
     }
   }, [])
 
-  const firstLine = 'SECURITY'
-  const secondLine = 'RESEARCH.'
+  const firstLine = 'Securing'
+  const secondLine = 'Technology'
 
   return (
     <section
       ref={containerRef}
-      className="relative w-full min-h-screen bg-background overflow-hidden flex flex-col justify-between px-12 pt-32 pb-16"
+      className="relative w-full min-h-screen bg-background overflow-hidden flex flex-col justify-between px-12 pt-40 pb-20"
     >
-      {/* Background glows */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute w-96 h-96 rounded-full bg-gradient-to-br from-primary/5 to-transparent blur-3xl -left-48 top-1/4" />
-        <div className="absolute w-80 h-80 rounded-full bg-gradient-to-br from-secondary/5 to-transparent blur-3xl -right-40 bottom-1/3" />
-      </div>
-
       {/* Main headline with logo */}
       <div className="relative z-10 flex-1 flex flex-col justify-center">
-        {/* Line 1: SECURITY (filled) */}
+        {/* Line 1: Securing (filled white) */}
         <h1 className="text-white font-display font-900 leading-none mb-0" suppressHydrationWarning>
           <span
             style={{
-              fontSize: 'clamp(80px, 15vw, 220px)',
+              fontSize: 'clamp(72px, 13vw, 200px)',
               display: 'block',
               overflow: 'visible',
+              letterSpacing: '-0.02em',
             }}
             suppressHydrationWarning
           >
@@ -112,50 +73,32 @@ export function Hero() {
           </span>
         </h1>
 
-        {/* Spinning logo - between the two lines */}
-        <div className="relative -my-8 pl-2 h-28 md:h-40 flex items-center pointer-events-none">
+        {/* Spinning pinwheel logo - between the two lines (90px per spec) */}
+        <div className="relative -my-6 pl-0 h-32 flex items-center pointer-events-none">
           <svg
             ref={logoRef}
             viewBox="0 0 100 100"
-            className="w-24 h-24 md:w-40 md:h-40"
-            style={{ willChange: 'transform' }}
+            className="w-24 h-24 md:w-32 md:h-32"
+            style={{ willChange: 'transform', animation: 'spin 8s linear infinite' }}
           >
-            {/* Petal 1 - top-right (green) */}
-            <path
-              d="M 50 20 Q 70 30, 75 50 Q 70 35, 50 30 Z"
-              fill="#0ae448"
-              opacity="0.9"
-            />
-            {/* Petal 2 - bottom-right (cyan) */}
-            <path
-              d="M 75 50 Q 70 70, 50 80 Q 60 65, 70 60 Z"
-              fill="#00d4ff"
-              opacity="0.8"
-            />
-            {/* Petal 3 - bottom-left (transparent green) */}
-            <path
-              d="M 50 80 Q 30 70, 25 50 Q 35 65, 50 70 Z"
-              fill="#0ae448"
-              opacity="0.5"
-            />
-            {/* Petal 4 - top-left (transparent cyan) */}
-            <path
-              d="M 25 50 Q 30 30, 50 20 Q 40 35, 30 45 Z"
-              fill="#00d4ff"
-              opacity="0.6"
-            />
-            {/* Center circle */}
-            <circle cx="50" cy="50" r="6" fill="#0ae448" />
+            {/* Petal 1: top-right — orange/coral #ff6b35 */}
+            <path d="M50,50 C50,50 75,40 80,20 C85,0 60,5 50,50" fill="#ff6b35" opacity="0.95" />
+            {/* Petal 2: bottom-right — purple/violet #a855f7 */}
+            <path d="M50,50 C50,50 60,75 80,80 C100,85 95,60 50,50" fill="#a855f7" opacity="0.95" />
+            {/* Petal 3: bottom-left — pink/magenta #ec4899 */}
+            <path d="M50,50 C50,50 25,60 20,80 C15,100 40,95 50,50" fill="#ec4899" opacity="0.85" />
+            {/* Petal 4: top-left — lighter green #4ade80 */}
+            <path d="M50,50 C50,50 40,25 20,20 C0,15 5,40 50,50" fill="#4ade80" opacity="0.85" />
           </svg>
         </div>
 
-        {/* Line 2: RESEARCH (outline only) */}
+        {/* Line 2: Technology (white filled) */}
         <h2
-          className="font-display font-900 leading-none text-transparent"
+          className="font-display font-900 leading-none text-white"
           style={{
-            fontSize: 'clamp(90px, 17vw, 240px)',
-            WebkitTextStroke: '2px #0ae448',
+            fontSize: 'clamp(80px, 15vw, 230px)',
             display: 'block',
+            letterSpacing: '-0.02em',
           }}
           suppressHydrationWarning
         >
@@ -173,35 +116,32 @@ export function Hero() {
         </h2>
       </div>
 
-      {/* Bottom content - tagline and CTA */}
-      <div className="relative z-10 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-        {/* Left: Tagline in brackets */}
-        <div data-tagline className="max-w-sm">
-          <div className="text-sm md:text-base text-foreground-secondary leading-relaxed font-sans">
-            <span className="text-primary">{'{'}</span> Security Researcher specializing in Vulnerability Research, API
-            Security, Smart Contract Audits &amp; FinTech Security
-            <span className="text-primary">{' }'}</span>
-          </div>
+      {/* Bottom content - tagline and CTA (exact GSAP.com style) */}
+      <div className="relative z-10 flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-16">
+        {/* Left: Tagline in brackets (exact GSAP.com style) */}
+        <div data-tagline className="max-w-sm flex-shrink-0">
+          <p className="font-mono text-xs md:text-sm text-text-muted leading-relaxed border-l border-white/15 pl-4">
+            {'{ Security Researcher — specializing in Vulnerability Research, '}
+            <br />
+            {'API Security, Smart Contract Audits & FinTech Security }'}
+          </p>
         </div>
 
-        {/* Right: CTA Button */}
+        {/* Right: CTA Button (exact GSAP.com style) */}
         <button
           data-cta
-          className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-background rounded-full font-mono font-bold text-xs uppercase tracking-widest transition-all duration-300 hover:shadow-lg hover:shadow-primary/50 hover:-translate-y-1 cursor-pointer whitespace-nowrap"
+          className="btn-ghost font-mono text-xs font-600 tracking-widest whitespace-nowrap w-fit"
         >
-          <span>View Work</span>
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M7 7h10v10M7 17L17 7" />
-          </svg>
+          Get in Touch
         </button>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-12 text-primary/50">
-        <svg className="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
-      </div>
+      <style>{`
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+      `}</style>
     </section>
   )
 }
