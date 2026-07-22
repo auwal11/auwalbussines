@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react'
 import Lenis from 'lenis'
+import { Preloader } from '@/components/portfolio/preloader'
+import { TopBanner } from '@/components/portfolio/top-banner'
 import { Navbar } from '@/components/portfolio/navbar'
 import { Hero } from '@/components/portfolio/hero'
 import { Ticker } from '@/components/portfolio/ticker'
@@ -30,6 +32,8 @@ export default function Page() {
 
   return (
     <div className="min-h-screen w-full bg-background text-foreground">
+      <Preloader />
+      <TopBanner />
       <Navbar />
       <main>
         <Hero />
