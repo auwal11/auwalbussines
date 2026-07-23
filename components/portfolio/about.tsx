@@ -98,22 +98,19 @@ export function About() {
             </p>
           </div>
 
-          {/* Right: Stats */}
-          <div className="grid grid-cols-2 gap-8">
+          {/* Right: Stats Grid (2x2) */}
+          <div className="grid grid-cols-2 gap-8 md:gap-12">
             {[
-              { label: 'Active on', value: '3+ Platforms' },
-              { label: 'Focus', value: 'FinTech & Web3' },
-              { label: 'Platforms', value: 'HackerOne, HackenProof, Cantina' },
-              { label: 'Methodology', value: 'OWASP-aligned' },
+              { label: 'Active Platforms', value: '3+' },
+              { label: 'Specializations', value: '6' },
+              { label: 'Focus Areas', value: 'FinTech & Web3' },
+              { label: 'Research Started', value: '2020' },
             ].map((stat, idx) => (
-              <div
-                key={idx}
-                className="border-t border-border pt-4 overflow-hidden"
-              >
-                <div className="reveal-line text-xs font-mono uppercase tracking-widest text-muted-foreground mb-2">
+              <div key={idx} className="border-t border-border pt-5 overflow-hidden">
+                <div className="reveal-line text-xs font-mono uppercase tracking-widest text-text-dim mb-3">
                   {stat.label}
                 </div>
-                <div className="reveal-line text-base md:text-lg font-display font-700 text-foreground">
+                <div className="reveal-line text-3xl md:text-5xl font-display font-900 text-white leading-tight">
                   {stat.value}
                 </div>
               </div>
