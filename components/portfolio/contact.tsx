@@ -31,23 +31,21 @@ export function Contact() {
   return (
     <section ref={containerRef} id="contact" className="relative py-32 px-12 border-t border-border" suppressHydrationWarning>
       <div className="max-w-6xl mx-auto">
-        {/* Large CTA Headline */}
+        {/* Large CTA Headline - 3 lines with proper spacing */}
         <div className="mb-16 text-center">
           <h2 className="text-6xl md:text-8xl font-display font-800 leading-tight mb-8" suppressHydrationWarning>
             <div className="overflow-hidden">
-              <span className="cta-word inline-block text-white">Open</span>
+              <span className="cta-word inline-block text-white">Let&apos;s</span>
             </div>
             <div className="overflow-hidden">
-              <span className="cta-word inline-block text-white">to</span>
+              <span className="cta-word inline-block text-white">Work</span>
             </div>
             <div className="overflow-hidden">
-              <span className="cta-word inline-block text-transparent" style={{ WebkitTextStroke: '2px #0ae448' }}>
-                Security
-              </span>
-            </div>
-            <div className="overflow-hidden">
-              <span className="cta-word inline-block text-transparent" style={{ WebkitTextStroke: '2px #0ae448' }}>
-                Roles.
+              <span
+                className="cta-word inline-block text-transparent"
+                style={{ WebkitTextStroke: '1.5px rgba(255, 255, 255, 0.25)' }}
+              >
+                Together.
               </span>
             </div>
           </h2>
